@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["Commands","OutputFormat"],"fn":["get_all_profiles"],"struct":["Cli"]};

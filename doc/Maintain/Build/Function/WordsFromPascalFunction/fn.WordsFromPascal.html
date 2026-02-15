@@ -1,0 +1,68 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="API documentation for the Rust `WordsFromPascal` fn in crate `Maintain`."><title>WordsFromPascal in Maintain::Build::Function::WordsFromPascalFunction - Rust</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-6b053e98.ttf.woff2,FiraSans-Italic-81dc35de.woff2,FiraSans-Regular-0fe48ade.woff2,FiraSans-MediumItalic-ccf7e434.woff2,FiraSans-Medium-e1aa3f0a.woff2,SourceCodePro-Regular-8badfe75.ttf.woff2,SourceCodePro-Semibold-aa29a496.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2"href="../../../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../../../static.files/normalize-9960930a.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-77263533.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="Maintain" data-themes="" data-resource-suffix="" data-rustdoc-version="1.95.0-nightly (d940e5684 2026-01-19)" data-channel="nightly" data-search-js="search-9e2438ea.js" data-stringdex-js="stringdex-b897f86f.js" data-settings-js="settings-c38705f0.js" ><script src="../../../../static.files/storage-e2aeef58.js"></script><script defer src="sidebar-items.js"></script><script defer src="../../../../static.files/main-7bab91a1.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-ffcac47a.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-eab170b8.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-044be391.svg"></head><body class="rustdoc fn"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><rustdoc-topbar><h2><a href="#">WordsFromPascal</a></h2></rustdoc-topbar><nav class="sidebar"><div class="sidebar-crate"><h2><a href="../../../../Maintain/index.html">Maintain</a><span class="version">0.0.1</span></h2></div><div class="sidebar-elems"><section id="rustdoc-toc"><h2 class="location"><a href="#">Words<wbr>From<wbr>Pascal</a></h2><h3><a href="#">Sections</a></h3><ul class="block top-toc"><li><a href="#parameters" title="Parameters">Parameters</a></li><li><a href="#returns" title="Returns">Returns</a></li><li><a href="#behavior" title="Behavior">Behavior</a></li><li><a href="#examples" title="Examples">Examples</a></li><li><a href="#edge-cases" title="Edge Cases">Edge Cases</a></li><li><a href="#algorithm" title="Algorithm">Algorithm</a></li></ul></section><div id="rustdoc-modnav"><h2><a href="index.html">In Maintain::<wbr>Build::<wbr>Function::<wbr>Words<wbr>From<wbr>Pascal<wbr>Function</a></h2></div></div></nav><div class="sidebar-resizer" title="Drag to resize sidebar"></div><main><div class="width-limiter"><section id="main-content" class="content"><div class="main-heading"><div class="rustdoc-breadcrumbs"><a href="../../../index.html">Maintain</a>::<wbr><a href="../../index.html">Build</a>::<wbr><a href="../index.html">Function</a>::<wbr><a href="index.html">WordsFromPascalFunction</a></div><h1>Function <span class="fn">Words<wbr>From<wbr>Pascal</span>&nbsp;<button id="copy-path" title="Copy item path to clipboard">Copy item path</button></h1><rustdoc-toolbar></rustdoc-toolbar><span class="sub-heading"><a class="src" href="../../../../src/Maintain/Build/Function/WordsFromPascalFunction.rs.html#145-179">Source</a> </span></div><pre class="rust item-decl"><code>pub fn WordsFromPascal(Text: &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>&gt;</code></pre><details class="toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock">
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span><span class="kw">crate</span>::Maintain::Source::Build::Function::WordsFromPascalFunction;
+<span class="kw">let </span>words = WordsFromPascal(<span class="string">"Development"</span>);
+<span class="macro">assert_eq!</span>(words, <span class="macro">vec!</span>[<span class="string">"development"</span>]);</code></pre></div>
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span><span class="kw">crate</span>::Maintain::Source::Build::Function::WordsFromPascalFunction;
+<span class="kw">let </span>words = WordsFromPascal(<span class="string">"NodeEnvironment"</span>);
+<span class="macro">assert_eq!</span>(words, <span class="macro">vec!</span>[<span class="string">"node"</span>, <span class="string">"environment"</span>]);</code></pre></div>
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span><span class="kw">crate</span>::Maintain::Source::Build::Function::WordsFromPascalFunction;
+<span class="kw">let </span>words = WordsFromPascal(<span class="string">"TauriAppsTauri"</span>);
+<span class="macro">assert_eq!</span>(words, <span class="macro">vec!</span>[<span class="string">"tauri"</span>, <span class="string">"apps"</span>, <span class="string">"tauri"</span>]);</code></pre></div>
+<p>Converts a <code>PascalCase</code> string into a vector of its lowercase constituent
+words.</p>
+<p>This function splits PascalCase strings into their individual words by
+detecting word boundaries where lowercase letters appear after uppercase
+letters. It handles common cases including:</p>
+<ul>
+<li>Simple words: <code>"Hello"</code> → <code>["hello"]</code></li>
+<li>Standard PascalCase: <code>"HelloWorld"</code> → <code>["hello", "world"]</code></li>
+<li>Multi-letter acronyms: <code>"TauriApps"</code> → <code>["tauri", "apps"]</code></li>
+</ul>
+<p>The algorithm tracks when transitions occur from lowercase to uppercase
+to determine word boundaries.</p>
+<h2 id="parameters"><a class="doc-anchor" href="#parameters">§</a>Parameters</h2>
+<ul>
+<li><code>Text</code> - The PascalCase string to split</li>
+</ul>
+<h2 id="returns"><a class="doc-anchor" href="#returns">§</a>Returns</h2>
+<p>A vector of lowercase strings representing the constituent words.</p>
+<h2 id="behavior"><a class="doc-anchor" href="#behavior">§</a>Behavior</h2>
+<ul>
+<li>Splits at boundaries where lowercase letters are followed by uppercase</li>
+<li>Handles consecutive uppercase letters as part of the same word</li>
+<li>Converts all words to lowercase</li>
+<li>Returns an empty vector for empty strings</li>
+</ul>
+<h2 id="examples"><a class="doc-anchor" href="#examples">§</a>Examples</h2>
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="macro">assert_eq!</span>(WordsFromPascal(<span class="string">"Hello"</span>), <span class="macro">vec!</span>[<span class="string">"hello"</span>]);
+<span class="macro">assert_eq!</span>(WordsFromPascal(<span class="string">"HelloWorld"</span>), <span class="macro">vec!</span>[<span class="string">"hello"</span>, <span class="string">"world"</span>]);
+<span class="macro">assert_eq!</span>(WordsFromPascal(<span class="string">"NodeEnvironment"</span>), <span class="macro">vec!</span>[<span class="string">"node"</span>, <span class="string">"environment"</span>]);
+<span class="macro">assert_eq!</span>(WordsFromPascal(<span class="string">"TauriAppsTauri"</span>), <span class="macro">vec!</span>[<span class="string">"tauri"</span>, <span class="string">"apps"</span>, <span class="string">"tauri"</span>]);
+<span class="macro">assert_eq!</span>(WordsFromPascal(<span class="string">""</span>), Vec::&lt;String&gt;::new());</code></pre></div><h2 id="edge-cases"><a class="doc-anchor" href="#edge-cases">§</a>Edge Cases</h2>
+<ul>
+<li>Empty string returns an empty vector</li>
+<li>Single character strings work correctly</li>
+<li>Strings with all lowercase are treated as a single word</li>
+<li>Strings with all uppercase are treated as a single word</li>
+</ul>
+<h2 id="algorithm"><a class="doc-anchor" href="#algorithm">§</a>Algorithm</h2>
+<p>The function iterates through each character:</p>
+<ol>
+<li>If the character is uppercase:
+<ul>
+<li>If we have accumulated lowercase characters, end the current word</li>
+<li>Add the uppercase character to the current word</li>
+<li>Track that we’re processing uppercase characters</li>
+</ul>
+</li>
+<li>If the character is lowercase:
+<ul>
+<li>Add to the current word</li>
+<li>Track that we’re processing lowercase characters</li>
+</ul>
+</li>
+<li>After iteration, add the final word</li>
+</ol>
+<p>This ensures that multi-letter sequences like “Apps” stay together while
+properly splitting “HelloWorld” into “hello” and “world”.</p>
+</div></details></section></div></main></body></html>

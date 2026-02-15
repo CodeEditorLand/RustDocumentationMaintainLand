@@ -1,0 +1,85 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="The main entry point of the binary."><title>Fn in Maintain::Build::Function::FnFunction - Rust</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-6b053e98.ttf.woff2,FiraSans-Italic-81dc35de.woff2,FiraSans-Regular-0fe48ade.woff2,FiraSans-MediumItalic-ccf7e434.woff2,FiraSans-Medium-e1aa3f0a.woff2,SourceCodePro-Regular-8badfe75.ttf.woff2,SourceCodePro-Semibold-aa29a496.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2"href="../../../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../../../static.files/normalize-9960930a.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-77263533.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="Maintain" data-themes="" data-resource-suffix="" data-rustdoc-version="1.95.0-nightly (d940e5684 2026-01-19)" data-channel="nightly" data-search-js="search-9e2438ea.js" data-stringdex-js="stringdex-b897f86f.js" data-settings-js="settings-c38705f0.js" ><script src="../../../../static.files/storage-e2aeef58.js"></script><script defer src="sidebar-items.js"></script><script defer src="../../../../static.files/main-7bab91a1.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-ffcac47a.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-eab170b8.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-044be391.svg"></head><body class="rustdoc fn"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><rustdoc-topbar><h2><a href="#">Fn</a></h2></rustdoc-topbar><nav class="sidebar"><div class="sidebar-crate"><h2><a href="../../../../Maintain/index.html">Maintain</a><span class="version">0.0.1</span></h2></div><div class="sidebar-elems"><section id="rustdoc-toc"><h2 class="location"><a href="#">Fn</a></h2><h3><a href="#">Sections</a></h3><ul class="block top-toc"><li><a href="#behavior" title="Behavior">Behavior</a></li><li><a href="#example-invocation" title="Example Invocation">Example Invocation</a></li><li><a href="#error-handling" title="Error Handling">Error Handling</a></li><li><a href="#logging" title="Logging">Logging</a></li><li><a href="#thread-safety" title="Thread Safety">Thread Safety</a></li><li><a href="#implementation-notes" title="Implementation Notes">Implementation Notes</a></li></ul></section><div id="rustdoc-modnav"><h2><a href="index.html">In Maintain::<wbr>Build::<wbr>Function::<wbr>FnFunction</a></h2></div></div></nav><div class="sidebar-resizer" title="Drag to resize sidebar"></div><main><div class="width-limiter"><section id="main-content" class="content"><div class="main-heading"><div class="rustdoc-breadcrumbs"><a href="../../../index.html">Maintain</a>::<wbr><a href="../../index.html">Build</a>::<wbr><a href="../index.html">Function</a>::<wbr><a href="index.html">FnFunction</a></div><h1>Function <span class="fn">Fn</span>&nbsp;<button id="copy-path" title="Copy item path to clipboard">Copy item path</button></h1><rustdoc-toolbar></rustdoc-toolbar><span class="sub-heading"><a class="src" href="../../../../src/Maintain/Build/Function/FnFunction.rs.html#180-199">Source</a> </span></div><pre class="rust item-decl"><code>pub fn Fn()</code></pre><details class="toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><p>The main entry point of the binary.</p>
+<p>This function serves as the primary entry point for the build orchestrator.
+It performs three main steps:</p>
+<ol>
+<li>
+<p><strong>Initialization</strong>: Sets up the global logger with appropriate formatting
+and log level based on the <code>RUST_LOG</code> environment variable.</p>
+</li>
+<li>
+<p><strong>Argument Parsing</strong>: Parses command-line arguments and environment
+variables using the <code>Argument</code> struct, which includes automatic validation
+and help text generation.</p>
+</li>
+<li>
+<p><strong>Orchestration</strong>: Delegates to the <code>Process</code> function to execute the
+complete build orchestration workflow, including:</p>
+<ul>
+<li>Validating project directory and configuration files</li>
+<li>Creating file guards for backup and restoration</li>
+<li>Generating product names and bundle identifiers</li>
+<li>Modifying configuration files for specific build flavors</li>
+<li>Optionally bundling Node.js sidecar binaries</li>
+<li>Executing the final build command</li>
+<li>Cleaning up temporary files</li>
+</ul>
+</li>
+</ol>
+<h2 id="behavior"><a class="doc-anchor" href="#behavior">§</a>Behavior</h2>
+<p>On successful build completion:</p>
+<ul>
+<li>Logs an informational message: “Build process completed successfully.”</li>
+<li>Exits with status code 0 (implicit)</li>
+</ul>
+<p>On build failure:</p>
+<ul>
+<li>Logs an error message with the error details</li>
+<li>Exits with status code 1 via <code>std::process::exit(1)</code></li>
+</ul>
+<h2 id="example-invocation"><a class="doc-anchor" href="#example-invocation">§</a>Example Invocation</h2>
+<p>Basic build with debug flag:</p>
+<div class="example-wrap"><pre class="language-sh"><code>./build-orchestrator --dir Element/Mountain --debug pnpm tauri build</code></pre></div>
+<p>Build with Node.js sidecar:</p>
+<div class="example-wrap"><pre class="language-sh"><code>export NODE_ENV=production
+export NODE_VERSION=22
+./build-orchestrator --name Mountain --prefix land.editor.binary pnpm tauri build</code></pre></div>
+<p>Build with dependency flavor:</p>
+<div class="example-wrap"><pre class="language-sh"><code>./build-orchestrator --dependency tauri-apps/tauri --clean true pnpm tauri build</code></pre></div><h2 id="error-handling"><a class="doc-anchor" href="#error-handling">§</a>Error Handling</h2>
+<p>The function uses Rust’s question mark operator (<code>?</code>) to propagate errors
+from the <code>Process</code> function. When an error occurs:</p>
+<ol>
+<li>The error is logged with <code>error!()</code> macro</li>
+<li>The program exits with status code 1</li>
+<li>File guards automatically restore original configuration files</li>
+</ol>
+<p>This ensures that:</p>
+<ul>
+<li>Build failures are clearly reported</li>
+<li>The workspace is left in a consistent state</li>
+<li>Original configuration files are preserved</li>
+</ul>
+<h2 id="logging"><a class="doc-anchor" href="#logging">§</a>Logging</h2>
+<p>The function requires the logger to be initialized first (via <code>Logger()</code>).
+All subsequent operations use structured logging with targets:</p>
+<ul>
+<li><code>Build</code> - General build orchestration messages</li>
+<li><code>Build::Guard</code> - File backup and restoration</li>
+<li><code>Build::Toml</code> - TOML editing operations</li>
+<li><code>Build::Json</code> - JavaScriptObjectNotation editing operations</li>
+<li><code>Build::Exec</code> - Command execution</li>
+</ul>
+<p>Control log verbosity with <code>RUST_LOG</code>:</p>
+<div class="example-wrap"><pre class="language-sh"><code>export RUST_LOG=debug  # More verbose output
+export RUST_LOG=error  # Only errors</code></pre></div><h2 id="thread-safety"><a class="doc-anchor" href="#thread-safety">§</a>Thread Safety</h2>
+<p>This function is not designed to be called concurrently. It should be
+called exactly once at program startup. The underlying <code>Process</code> function
+and logging infrastructure handle their own synchronization requirements.</p>
+<h2 id="implementation-notes"><a class="doc-anchor" href="#implementation-notes">§</a>Implementation Notes</h2>
+<p>The function name <code>Fn</code> is intentionally short to serve as a concise
+entry point. In Rust, <code>Fn</code> is not a reserved word when used as a
+function name (unlike traits like <code>Fn</code>, <code>FnMut</code>, and <code>FnOnce</code>).</p>
+<p>The function does not return a value because it either completes
+successfully (and the program exits) or exits with an error status.
+This pattern is common for Rust binaries that serve as command-line
+tools or build scripts.</p>
+</div></details></section></div></main></body></html>

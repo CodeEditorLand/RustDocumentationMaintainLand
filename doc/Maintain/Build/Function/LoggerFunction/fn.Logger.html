@@ -1,0 +1,68 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Sets up the global logger for the application."><title>Logger in Maintain::Build::Function::LoggerFunction - Rust</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-6b053e98.ttf.woff2,FiraSans-Italic-81dc35de.woff2,FiraSans-Regular-0fe48ade.woff2,FiraSans-MediumItalic-ccf7e434.woff2,FiraSans-Medium-e1aa3f0a.woff2,SourceCodePro-Regular-8badfe75.ttf.woff2,SourceCodePro-Semibold-aa29a496.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2"href="../../../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../../../static.files/normalize-9960930a.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-77263533.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="Maintain" data-themes="" data-resource-suffix="" data-rustdoc-version="1.95.0-nightly (d940e5684 2026-01-19)" data-channel="nightly" data-search-js="search-9e2438ea.js" data-stringdex-js="stringdex-b897f86f.js" data-settings-js="settings-c38705f0.js" ><script src="../../../../static.files/storage-e2aeef58.js"></script><script defer src="sidebar-items.js"></script><script defer src="../../../../static.files/main-7bab91a1.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-ffcac47a.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-eab170b8.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-044be391.svg"></head><body class="rustdoc fn"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><rustdoc-topbar><h2><a href="#">Logger</a></h2></rustdoc-topbar><nav class="sidebar"><div class="sidebar-crate"><h2><a href="../../../../Maintain/index.html">Maintain</a><span class="version">0.0.1</span></h2></div><div class="sidebar-elems"><section id="rustdoc-toc"><h2 class="location"><a href="#">Logger</a></h2><h3><a href="#">Sections</a></h3><ul class="block top-toc"><li><a href="#log-levels" title="Log Levels">Log Levels</a></li><li><a href="#log-format" title="Log Format">Log Format</a></li><li><a href="#environment-configuration" title="Environment Configuration">Environment Configuration</a></li><li><a href="#usage-example" title="Usage Example">Usage Example</a></li><li><a href="#module-specific-logging" title="Module-Specific Logging">Module-Specific Logging</a></li><li><a href="#thread-safety" title="Thread Safety">Thread Safety</a></li><li><a href="#implementation-notes" title="Implementation Notes">Implementation Notes</a></li></ul></section><div id="rustdoc-modnav"><h2><a href="index.html">In Maintain::<wbr>Build::<wbr>Function::<wbr>Logger<wbr>Function</a></h2></div></div></nav><div class="sidebar-resizer" title="Drag to resize sidebar"></div><main><div class="width-limiter"><section id="main-content" class="content"><div class="main-heading"><div class="rustdoc-breadcrumbs"><a href="../../../index.html">Maintain</a>::<wbr><a href="../../index.html">Build</a>::<wbr><a href="../index.html">Function</a>::<wbr><a href="index.html">LoggerFunction</a></div><h1>Function <span class="fn">Logger</span>&nbsp;<button id="copy-path" title="Copy item path to clipboard">Copy item path</button></h1><rustdoc-toolbar></rustdoc-toolbar><span class="sub-heading"><a class="src" href="../../../../src/Maintain/Build/Function/LoggerFunction.rs.html#174-198">Source</a> </span></div><pre class="rust item-decl"><code>pub fn Logger()</code></pre><details class="toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><p>Sets up the global logger for the application.</p>
+<p>This function initializes the <code>env_logger</code> crate with custom formatting
+and configuration for the build system. It:</p>
+<ul>
+<li>Reads the <code>RUST_LOG</code> environment variable to set the log level</li>
+<li>Defaults to <code>info</code> level if the variable is not set</li>
+<li>Provides color-coded output for different log levels</li>
+<li>Formats messages with a consistent <code>[Build]</code> prefix</li>
+</ul>
+<h2 id="log-levels"><a class="doc-anchor" href="#log-levels">§</a>Log Levels</h2>
+<p>Supported log levels (in increasing verbosity):</p>
+<ul>
+<li><code>error</code> - Only error messages</li>
+<li><code>warn</code> - Warning messages and errors</li>
+<li><code>info</code> - Informational messages, warnings, and errors (default)</li>
+<li><code>debug</code> - Debug messages and above</li>
+<li><code>trace</code> - Trace messages and above (very verbose)</li>
+</ul>
+<h2 id="log-format"><a class="doc-anchor" href="#log-format">§</a>Log Format</h2>
+<p>Messages are formatted as:</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code>[Build] [LEVEL]: message content</code></pre></div>
+<p>Where <code>LEVEL</code> is color-coded:</p>
+<ul>
+<li><code>[ERROR]</code> - Red, bold</li>
+<li><code>[WARN]</code> - Yellow, bold</li>
+<li><code>[INFO]</code> - Green</li>
+<li><code>[DEBUG]</code> - Blue</li>
+<li><code>[TRACE]</code> - Magenta</li>
+</ul>
+<h2 id="environment-configuration"><a class="doc-anchor" href="#environment-configuration">§</a>Environment Configuration</h2>
+<p>The log level is controlled by the <code>RUST_LOG</code> environment variable:</p>
+<div class="example-wrap"><pre class="language-sh"><code>Set minimum log level to debug
+export RUST_LOG=debug
+
+Enable debug logs only for the Build module
+export RUST_LOG=Build=debug
+
+Enable trace logs for Build::Toml module
+export RUST_LOG=Build::Toml=trace</code></pre></div><h2 id="usage-example"><a class="doc-anchor" href="#usage-example">§</a>Usage Example</h2>
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span><span class="kw">crate</span>::Maintain::Source::Build::Function::LoggerFunction;
+<span class="kw">use </span>log::{info, error};
+
+<span class="comment">// Initialize logger first
+</span>Logger();
+
+<span class="comment">// Now logging is available throughout the application
+</span><span class="macro">info!</span>(<span class="string">"Build process started"</span>);
+<span class="macro">error!</span>(<span class="string">"Build process failed"</span>);</code></pre></div><h2 id="module-specific-logging"><a class="doc-anchor" href="#module-specific-logging">§</a>Module-Specific Logging</h2>
+<p>The build system uses the following logging targets:</p>
+<ul>
+<li><code>Build</code> - General build orchestration messages</li>
+<li><code>Build::Guard</code> - File backup and restoration messages</li>
+<li><code>Build::Toml</code> - TOML editing messages</li>
+<li><code>Build::Json</code> - JavaScriptObjectNotation editing messages</li>
+<li><code>Build::Exec</code> - Command execution messages</li>
+</ul>
+<p>You can set different log levels for each target:</p>
+<div class="example-wrap"><pre class="language-sh"><code>export RUST_LOG=Build=info,Build::Toml=debug,Build::Exec=warn</code></pre></div><h2 id="thread-safety"><a class="doc-anchor" href="#thread-safety">§</a>Thread Safety</h2>
+<p>The global logger initialized by this function is thread-safe and can be
+used from multiple threads concurrently without additional synchronization.</p>
+<h2 id="implementation-notes"><a class="doc-anchor" href="#implementation-notes">§</a>Implementation Notes</h2>
+<p>This function uses <code>env_logger::Builder</code> to construct the logger with
+custom formatting. The formatter uses the <code>colored</code> crate to apply
+color coding based on the log level.</p>
+<p>The logger is typically called once at program startup, before any other
+operations that might generate log messages.</p>
+</div></details></section></div></main></body></html>
