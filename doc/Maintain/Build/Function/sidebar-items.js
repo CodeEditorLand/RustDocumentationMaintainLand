@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":["FnFunction","GetTauriTargetTripleFunction","JavaScriptObjectNotationEditingFunction","LoggerFunction","PascalizeFunction","ProcessFunction","TomlEditingFunction","WordsFromPascalFunction"]};

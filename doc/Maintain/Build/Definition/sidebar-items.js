@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":["ArgumentDefinition","GuardDefinition","ManifestDefinition"]};
+window.SIDEBAR_ITEMS = {"struct":["Argument","Guard","Manifest","Meta"]};

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"fn":["apply","format_env","generate_feature_env","generate_workbench_env","resolve","resolve_full","validate_required"]};
+window.SIDEBAR_ITEMS = {"fn":["apply","apply_prefixes","expand_variables","format_env","generate_feature_env","generate_workbench_env","resolve","resolve_full","validate_required"]};

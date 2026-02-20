@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["apply_template_defaults","filter_run_vars","format_for_display","get_workbench","is_debug","is_hot_reload_enabled","is_watch_enabled","merge_shell_env","resolve","validate"]};

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"fn":["create_engine","execute_profile_script","load_script"],"struct":["ScriptContext","ScriptResult"]};
+window.SIDEBAR_ITEMS = {"fn":["create_engine","create_scope","execute_profile_script","extract_env_map","extract_feature_map","load_script"],"struct":["ScriptContext","ScriptResult"]};

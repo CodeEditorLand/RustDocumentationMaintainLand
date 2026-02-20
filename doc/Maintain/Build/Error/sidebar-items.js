@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":["BuildError"]};
+window.SIDEBAR_ITEMS = {"enum":["Error"]};

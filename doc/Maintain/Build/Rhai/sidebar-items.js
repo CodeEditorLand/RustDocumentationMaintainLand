@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"fn":["create_engine"],"mod":["ConfigLoader","EnvironmentResolver","ScriptRunner"]};
+window.SIDEBAR_ITEMS = {"fn":["create_engine","register_utility_functions"],"mod":["ConfigLoader","EnvironmentResolver","ScriptRunner"]};
