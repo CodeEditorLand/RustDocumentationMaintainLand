@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["Apply","ApplyPrefixes","ExpandVariables","Resolve","ResolveFull","format_env","generate_feature_env","generate_workbench_env","validate_required"]};

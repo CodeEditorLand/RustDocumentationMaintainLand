@@ -1,0 +1,108 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `Element/Maintain/Source/Build/Constant.rs`."><title>Constant.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-6b053e98.ttf.woff2,FiraSans-Italic-81dc35de.woff2,FiraSans-Regular-0fe48ade.woff2,FiraSans-MediumItalic-ccf7e434.woff2,FiraSans-Medium-e1aa3f0a.woff2,SourceCodePro-Regular-8badfe75.ttf.woff2,SourceCodePro-Semibold-aa29a496.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2"href="../../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../../static.files/normalize-9960930a.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b7b9f40b.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="Maintain" data-themes="" data-resource-suffix="" data-rustdoc-version="1.96.0-nightly (b41f22de2 2026-03-08)" data-channel="nightly" data-search-js="search-63369b7b.js" data-stringdex-js="stringdex-b897f86f.js" data-settings-js="settings-170eb4bf.js" ><script src="../../../static.files/storage-41dd4d93.js"></script><script defer src="../../../static.files/src-script-813739b1.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-5013f961.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-f7c3ffd8.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-eab170b8.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-044be391.svg"></head><body class="rustdoc src"><a class="skip-main-content" href="#main-content">Skip to main content</a><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer" title="Drag to resize sidebar"></div><main><section id="main-content" class="content" tabindex="-1"><div class="main-heading"><h1><div class="sub-heading">Maintain/Build/</div>Constant.rs</h1><rustdoc-toolbar></rustdoc-toolbar></div><div class="example-wrap digits-3"><pre class="rust"><code><a href=#1 id=1 data-nosnippet>1</a><span class="comment">//=============================================================================//
+<a href=#2 id=2 data-nosnippet>2</a>// File Path: Element/Maintain/Source/Build/Constant.rs
+<a href=#3 id=3 data-nosnippet>3</a>//=============================================================================//
+<a href=#4 id=4 data-nosnippet>4</a>// Module: Constant
+<a href=#5 id=5 data-nosnippet>5</a>//
+<a href=#6 id=6 data-nosnippet>6</a>// Brief Description: Build system constants and configuration values.
+<a href=#7 id=7 data-nosnippet>7</a>//
+<a href=#8 id=8 data-nosnippet>8</a>// RESPONSIBILITIES:
+<a href=#9 id=9 data-nosnippet>9</a>// ================
+<a href=#10 id=10 data-nosnippet>10</a>//
+<a href=#11 id=11 data-nosnippet>11</a>// Primary:
+<a href=#12 id=12 data-nosnippet>12</a>// - Provide file path constants
+<a href=#13 id=13 data-nosnippet>13</a>// - Provide delimiter constants
+<a href=#14 id=14 data-nosnippet>14</a>// - Provide environment variable name constants
+<a href=#15 id=15 data-nosnippet>15</a>// - Serve as single source of truth for constant values
+<a href=#16 id=16 data-nosnippet>16</a>//
+<a href=#17 id=17 data-nosnippet>17</a>// Secondary:
+<a href=#18 id=18 data-nosnippet>18</a>// - Ensure consistent naming across the build system
+<a href=#19 id=19 data-nosnippet>19</a>//
+<a href=#20 id=20 data-nosnippet>20</a>// ARCHITECTURAL ROLE:
+<a href=#21 id=21 data-nosnippet>21</a>// ===================
+<a href=#22 id=22 data-nosnippet>22</a>//
+<a href=#23 id=23 data-nosnippet>23</a>// Position:
+<a href=#24 id=24 data-nosnippet>24</a>// - Infrastructure/Configuration layer
+<a href=#25 id=25 data-nosnippet>25</a>// - Constant definitions
+<a href=#26 id=26 data-nosnippet>26</a>//
+<a href=#27 id=27 data-nosnippet>27</a>// Dependencies (What this module requires):
+<a href=#28 id=28 data-nosnippet>28</a>// - External crates: None
+<a href=#29 id=29 data-nosnippet>29</a>// - Internal modules: None
+<a href=#30 id=30 data-nosnippet>30</a>// - Traits implemented: None
+<a href=#31 id=31 data-nosnippet>31</a>//
+<a href=#32 id=32 data-nosnippet>32</a>// Dependents (What depends on this module):
+<a href=#33 id=33 data-nosnippet>33</a>// - Build orchestration functions
+<a href=#34 id=34 data-nosnippet>34</a>// - Argument parsing module
+<a href=#35 id=35 data-nosnippet>35</a>// - Product name generation logic
+<a href=#36 id=36 data-nosnippet>36</a>//
+<a href=#37 id=37 data-nosnippet>37</a>// IMPLEMENTATION DETAILS:
+<a href=#38 id=38 data-nosnippet>38</a>// =======================
+<a href=#39 id=39 data-nosnippet>39</a>//
+<a href=#40 id=40 data-nosnippet>40</a>// Design Patterns:
+<a href=#41 id=41 data-nosnippet>41</a>// - Constant module pattern
+<a href=#42 id=42 data-nosnippet>42</a>//
+<a href=#43 id=43 data-nosnippet>43</a>// Performance Considerations:
+<a href=#44 id=44 data-nosnippet>44</a>// - Complexity: O(1) - all are static constants
+<a href=#45 id=45 data-nosnippet>45</a>// - Memory usage patterns: Static string slices
+<a href=#46 id=46 data-nosnippet>46</a>// - Hot path optimizations: None needed
+<a href=#47 id=47 data-nosnippet>47</a>//
+<a href=#48 id=48 data-nosnippet>48</a>// Thread Safety:
+<a href=#49 id=49 data-nosnippet>49</a>// - Thread-safe: Yes (all are immutable)
+<a href=#50 id=50 data-nosnippet>50</a>// - Synchronization mechanisms used: None
+<a href=#51 id=51 data-nosnippet>51</a>// - Interior mutability considerations: None
+<a href=#52 id=52 data-nosnippet>52</a>//
+<a href=#53 id=53 data-nosnippet>53</a>// Error Handling:
+<a href=#54 id=54 data-nosnippet>54</a>// - Error types returned: None
+<a href=#55 id=55 data-nosnippet>55</a>// - Recovery strategies: Not applicable
+<a href=#56 id=56 data-nosnippet>56</a>//
+<a href=#57 id=57 data-nosnippet>57</a>// EXAMPLES:
+<a href=#58 id=58 data-nosnippet>58</a>// =========
+<a href=#59 id=59 data-nosnippet>59</a>//
+<a href=#60 id=60 data-nosnippet>60</a>// Example 1: Using file path constants
+<a href=#61 id=61 data-nosnippet>61</a></span><span class="doccomment">/// ```rust
+<a href=#62 id=62 data-nosnippet>62</a>/// use crate::Maintain::Source::Build::Constant;
+<a href=#63 id=63 data-nosnippet>63</a>/// let cargo_path = project_dir.join(CargoFile);
+<a href=#64 id=64 data-nosnippet>64</a>/// ```
+<a href=#65 id=65 data-nosnippet>65</a></span><span class="comment">// Example 2: Using delimiter constants
+<a href=#66 id=66 data-nosnippet>66</a></span><span class="doccomment">/// ```rust
+<a href=#67 id=67 data-nosnippet>67</a>/// use crate::Maintain::Source::Build::Constant;
+<a href=#68 id=68 data-nosnippet>68</a>/// let product_name = parts.join(NameDelimiter);
+<a href=#69 id=69 data-nosnippet>69</a>/// ```
+<a href=#70 id=70 data-nosnippet>70</a></span><span class="comment">// Example 3: Using environment variable constants
+<a href=#71 id=71 data-nosnippet>71</a></span><span class="doccomment">/// ```rust
+<a href=#72 id=72 data-nosnippet>72</a>/// use crate::Maintain::Source::Build::Constant;
+<a href=#73 id=73 data-nosnippet>73</a>/// let node_env = std::env::var(NodeEnv);
+<a href=#74 id=74 data-nosnippet>74</a>/// ```
+<a href=#75 id=75 data-nosnippet>75</a></span><span class="comment">//
+<a href=#76 id=76 data-nosnippet>76</a>//=============================================================================//
+<a href=#77 id=77 data-nosnippet>77</a>// IMPLEMENTATION
+<a href=#78 id=78 data-nosnippet>78</a>//=============================================================================//
+<a href=#79 id=79 data-nosnippet>79</a>
+<a href=#80 id=80 data-nosnippet>80</a>// File path constants
+<a href=#81 id=81 data-nosnippet>81</a></span><span class="kw">pub const </span><a href="../../../Maintain/Build/Constant/constant.CargoFile.html">CargoFile</a>:<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a> = <span class="string">"Cargo.toml"</span>;
+<a href=#82 id=82 data-nosnippet>82</a><span class="kw">pub const </span><a href="../../../Maintain/Build/Constant/constant.JsonFile.html">JsonFile</a>:<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a> = <span class="string">"tauri.conf.json"</span>;
+<a href=#83 id=83 data-nosnippet>83</a><span class="kw">pub const </span><a href="../../../Maintain/Build/Constant/constant.JsonfiveFile.html">JsonfiveFile</a>:<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a> = <span class="string">"tauri.conf.json5"</span>;
+<a href=#84 id=84 data-nosnippet>84</a>
+<a href=#85 id=85 data-nosnippet>85</a><span class="comment">// Default values
+<a href=#86 id=86 data-nosnippet>86</a></span><span class="kw">pub const </span><a href="../../../Maintain/Build/Constant/constant.DirectoryDefault.html">DirectoryDefault</a>:<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a> = <span class="string">"Element/Mountain"</span>;
+<a href=#87 id=87 data-nosnippet>87</a><span class="kw">pub const </span><a href="../../../Maintain/Build/Constant/constant.NameDefault.html">NameDefault</a>:<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a> = <span class="string">"Mountain"</span>;
+<a href=#88 id=88 data-nosnippet>88</a><span class="kw">pub const </span><a href="../../../Maintain/Build/Constant/constant.PrefixDefault.html">PrefixDefault</a>:<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a> = <span class="string">"land.editor.binary"</span>;
+<a href=#89 id=89 data-nosnippet>89</a>
+<a href=#90 id=90 data-nosnippet>90</a><span class="comment">// Delimiter constants
+<a href=#91 id=91 data-nosnippet>91</a></span><span class="kw">pub const </span><a href="../../../Maintain/Build/Constant/constant.BackupSuffix.html">BackupSuffix</a>:<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a> = <span class="string">".Backup"</span>;
+<a href=#92 id=92 data-nosnippet>92</a><span class="kw">pub const </span><a href="../../../Maintain/Build/Constant/constant.IdDelimiter.html">IdDelimiter</a>:<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a> = <span class="string">"."</span>;
+<a href=#93 id=93 data-nosnippet>93</a><span class="kw">pub const </span><a href="../../../Maintain/Build/Constant/constant.NameDelimiter.html">NameDelimiter</a>:<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a> = <span class="string">"_"</span>;
+<a href=#94 id=94 data-nosnippet>94</a>
+<a href=#95 id=95 data-nosnippet>95</a><span class="comment">// Environment variable constants
+<a href=#96 id=96 data-nosnippet>96</a></span><span class="kw">pub const </span><a href="../../../Maintain/Build/Constant/constant.BrowserEnv.html">BrowserEnv</a>:<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a> = <span class="string">"Browser"</span>;
+<a href=#97 id=97 data-nosnippet>97</a><span class="kw">pub const </span><a href="../../../Maintain/Build/Constant/constant.BundleEnv.html">BundleEnv</a>:<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a> = <span class="string">"Bundle"</span>;
+<a href=#98 id=98 data-nosnippet>98</a><span class="kw">pub const </span><a href="../../../Maintain/Build/Constant/constant.CleanEnv.html">CleanEnv</a>:<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a> = <span class="string">"Clean"</span>;
+<a href=#99 id=99 data-nosnippet>99</a><span class="kw">pub const </span><a href="../../../Maintain/Build/Constant/constant.CompileEnv.html">CompileEnv</a>:<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a> = <span class="string">"Compile"</span>;
+<a href=#100 id=100 data-nosnippet>100</a><span class="kw">pub const </span><a href="../../../Maintain/Build/Constant/constant.DebugEnv.html">DebugEnv</a>:<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a> = <span class="string">"Debug"</span>;
+<a href=#101 id=101 data-nosnippet>101</a><span class="kw">pub const </span><a href="../../../Maintain/Build/Constant/constant.DependencyEnv.html">DependencyEnv</a>:<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a> = <span class="string">"Dependency"</span>;
+<a href=#102 id=102 data-nosnippet>102</a><span class="kw">pub const </span><a href="../../../Maintain/Build/Constant/constant.DirEnv.html">DirEnv</a>:<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a> = <span class="string">"MOUNTAIN_DIR"</span>;
+<a href=#103 id=103 data-nosnippet>103</a><span class="kw">pub const </span><a href="../../../Maintain/Build/Constant/constant.LogEnv.html">LogEnv</a>:<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a> = <span class="string">"RUST_LOG"</span>;
+<a href=#104 id=104 data-nosnippet>104</a><span class="kw">pub const </span><a href="../../../Maintain/Build/Constant/constant.NameEnv.html">NameEnv</a>:<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a> = <span class="string">"MOUNTAIN_ORIGINAL_BASE_NAME"</span>;
+<a href=#105 id=105 data-nosnippet>105</a><span class="kw">pub const </span><a href="../../../Maintain/Build/Constant/constant.NodeEnv.html">NodeEnv</a>:<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a> = <span class="string">"NODE_ENV"</span>;
+<a href=#106 id=106 data-nosnippet>106</a><span class="kw">pub const </span><a href="../../../Maintain/Build/Constant/constant.NodeVersionEnv.html">NodeVersionEnv</a>:<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a> = <span class="string">"NODE_VERSION"</span>;
+<a href=#107 id=107 data-nosnippet>107</a><span class="kw">pub const </span><a href="../../../Maintain/Build/Constant/constant.PrefixEnv.html">PrefixEnv</a>:<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a> = <span class="string">"MOUNTAIN_BUNDLE_ID_PREFIX"</span>;
+</code></pre></div></section></main></body></html>
