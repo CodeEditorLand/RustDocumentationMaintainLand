@@ -74,7 +74,7 @@
 <a href=#74 id=74 data-nosnippet>74</a>// IMPLEMENTATION
 <a href=#75 id=75 data-nosnippet>75</a>//=============================================================================//
 <a href=#76 id=76 data-nosnippet>76</a></span><span class="kw">use </span><a href="Definition.rs.html#132-268"><span class="kw">crate</span>::Build::Definition::Argument</a>;
-<a href=#77 id=77 data-nosnippet>77</a><span class="kw">use </span><span class="kw">crate</span>::Build::{<a href="Logger.rs.html#173-197">Logger::Logger</a>, <a href="Process.rs.html#180-542">Process::Process</a>};
+<a href=#77 id=77 data-nosnippet>77</a><span class="kw">use </span><span class="kw">crate</span>::Build::{<a href="Logger.rs.html#173-197">Logger::Logger</a>, <a href="Process.rs.html#177-533">Process::Process</a>};
 <a href=#78 id=78 data-nosnippet>78</a>
 <a href=#79 id=79 data-nosnippet>79</a><span class="doccomment">/// The main entry point of the binary.
 <a href=#80 id=80 data-nosnippet>80</a>///
@@ -184,7 +184,7 @@
 <a href=#184 id=184 data-nosnippet>184</a>	<a href="https://docs.rs/log/0.4.29/log/macro.debug.html">log::debug!</a>(<span class="string">"Parsed arguments: {:?}"</span>, Argument);
 <a href=#185 id=185 data-nosnippet>185</a>
 <a href=#186 id=186 data-nosnippet>186</a>	<span class="comment">// Step 3: Execute the build orchestration process
-<a href=#187 id=187 data-nosnippet>187</a>	</span><span class="kw">match </span><a href="Process.rs.html#180-542">Process</a>(<span class="kw-2">&amp;</span><a href="#182">Argument</a>) {
+<a href=#187 id=187 data-nosnippet>187</a>	</span><span class="kw">match </span><a href="Process.rs.html#177-533">Process</a>(<span class="kw-2">&amp;</span><a href="#182">Argument</a>) {
 <a href=#188 id=188 data-nosnippet>188</a>		<a class="prelude-val" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html#variant.Ok">Ok</a>(<span class="kw">_</span>) =&gt; <a href="https://docs.rs/log/0.4.29/log/macro.info.html">info!</a>(<span class="string">"Build process completed successfully."</span>),
 <a href=#189 id=189 data-nosnippet>189</a>
 <a href=#190 id=190 data-nosnippet>190</a>		<a class="prelude-val" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html#variant.Err">Err</a>(e) =&gt; {

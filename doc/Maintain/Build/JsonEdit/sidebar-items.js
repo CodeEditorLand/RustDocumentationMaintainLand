@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"fn":["JsonEdit"]};
+window.SIDEBAR_ITEMS = {"fn":["DedupeJson","JsonEdit"]};
