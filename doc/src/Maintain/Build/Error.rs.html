@@ -105,7 +105,7 @@
 <a href=#105 id=105 data-nosnippet>105</a>/// - `json5::Error` → `Error::Jsonfive`
 <a href=#106 id=106 data-nosnippet>106</a>/// - `std::string::FromUtf8Error` → `Error::Utf`
 <a href=#107 id=107 data-nosnippet>107</a></span><span class="attr">#[derive(Error, <a href="https://doc.rust-lang.org/nightly/core/fmt/macros/derive.Debug.html">Debug</a>)]
-<a href=#108 id=108 data-nosnippet>108</a></span><span class="kw">pub enum </span><a href="#108-197">Error</a> {
+<a href=#108 id=108 data-nosnippet>108</a></span><span class="kw">pub enum </span><a href="#108-204">Error</a> {
 <a href=#109 id=109 data-nosnippet>109</a>	<span class="doccomment">/// IO operation error.
 <a href=#110 id=110 data-nosnippet>110</a>	///
 <a href=#111 id=111 data-nosnippet>111</a>	/// This variant wraps standard Rust IO errors that can occur during
@@ -187,12 +187,19 @@
 <a href=#187 id=187 data-nosnippet>187</a>	</span><span class="attr">#[error(<span class="string">"UTF-8 Conversion: {0}"</span>)]
 <a href=#188 id=188 data-nosnippet>188</a>	</span>Utf(<span class="attr">#[from] </span>std::string::<a href="https://doc.rust-lang.org/nightly/alloc/string/struct.FromUtf8Error.html">FromUtf8Error</a>),
 <a href=#189 id=189 data-nosnippet>189</a>
-<a href=#190 id=190 data-nosnippet>190</a>	<span class="doccomment">/// Missing environment variable error.
+<a href=#190 id=190 data-nosnippet>190</a>	<span class="doccomment">/// Plist parsing/serialization error.
 <a href=#191 id=191 data-nosnippet>191</a>	///
-<a href=#192 id=192 data-nosnippet>192</a>	/// This variant is used when a required environment variable is not
-<a href=#193 id=193 data-nosnippet>193</a>	/// set. The variable name is included in the error message for easy
-<a href=#194 id=194 data-nosnippet>194</a>	/// identification and resolution.
-<a href=#195 id=195 data-nosnippet>195</a>	</span><span class="attr">#[error(<span class="string">"Environment Variable Missing: {0}"</span>)]
-<a href=#196 id=196 data-nosnippet>196</a>	</span>Environment(<a href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html">String</a>),
-<a href=#197 id=197 data-nosnippet>197</a>}
+<a href=#192 id=192 data-nosnippet>192</a>	/// This variant wraps errors that occur when parsing or serializing
+<a href=#193 id=193 data-nosnippet>193</a>	/// Apple Property List (plist) files using the `plist` crate.
+<a href=#194 id=194 data-nosnippet>194</a>	</span><span class="attr">#[error(<span class="string">"Plist: {0}"</span>)]
+<a href=#195 id=195 data-nosnippet>195</a>	</span>Plist(<span class="attr">#[from] </span>plist::Error),
+<a href=#196 id=196 data-nosnippet>196</a>
+<a href=#197 id=197 data-nosnippet>197</a>	<span class="doccomment">/// Missing environment variable error.
+<a href=#198 id=198 data-nosnippet>198</a>	///
+<a href=#199 id=199 data-nosnippet>199</a>	/// This variant is used when a required environment variable is not
+<a href=#200 id=200 data-nosnippet>200</a>	/// set. The variable name is included in the error message for easy
+<a href=#201 id=201 data-nosnippet>201</a>	/// identification and resolution.
+<a href=#202 id=202 data-nosnippet>202</a>	</span><span class="attr">#[error(<span class="string">"Environment Variable Missing: {0}"</span>)]
+<a href=#203 id=203 data-nosnippet>203</a>	</span>Environment(<a href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html">String</a>),
+<a href=#204 id=204 data-nosnippet>204</a>}
 </code></pre></div></section></main></body></html>

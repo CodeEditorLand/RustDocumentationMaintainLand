@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"fn":["Process"]};
+window.SIDEBAR_ITEMS = {"fn":["BuildPlistEnvironment","Process"]};

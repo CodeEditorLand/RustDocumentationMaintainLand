@@ -74,7 +74,7 @@
 <a href=#74 id=74 data-nosnippet>74</a>// IMPLEMENTATION
 <a href=#75 id=75 data-nosnippet>75</a>//=============================================================================//
 <a href=#76 id=76 data-nosnippet>76</a></span><span class="kw">use </span><a href="Definition.rs.html#132-268"><span class="kw">crate</span>::Build::Definition::Argument</a>;
-<a href=#77 id=77 data-nosnippet>77</a><span class="kw">use </span><span class="kw">crate</span>::Build::{<a href="Logger.rs.html#173-197">Logger::Logger</a>, <a href="Process.rs.html#177-533">Process::Process</a>};
+<a href=#77 id=77 data-nosnippet>77</a><span class="kw">use </span><span class="kw">crate</span>::Build::{<a href="Logger.rs.html#173-197">Logger::Logger</a>, <a href="Process.rs.html#191-585">Process::Process</a>};
 <a href=#78 id=78 data-nosnippet>78</a>
 <a href=#79 id=79 data-nosnippet>79</a><span class="doccomment">/// The main entry point of the binary.
 <a href=#80 id=80 data-nosnippet>80</a>///
@@ -184,7 +184,7 @@
 <a href=#184 id=184 data-nosnippet>184</a>	<a href="https://docs.rs/log/0.4.29/log/macro.debug.html">log::debug!</a>(<span class="string">"Parsed arguments: {:?}"</span>, Argument);
 <a href=#185 id=185 data-nosnippet>185</a>
 <a href=#186 id=186 data-nosnippet>186</a>	<span class="comment">// Step 3: Execute the build orchestration process
-<a href=#187 id=187 data-nosnippet>187</a>	</span><span class="kw">match </span><a href="Process.rs.html#177-533">Process</a>(<span class="kw-2">&amp;</span><a href="#182">Argument</a>) {
+<a href=#187 id=187 data-nosnippet>187</a>	</span><span class="kw">match </span><a href="Process.rs.html#191-585">Process</a>(<span class="kw-2">&amp;</span><a href="#182">Argument</a>) {
 <a href=#188 id=188 data-nosnippet>188</a>		<a class="prelude-val" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html#variant.Ok">Ok</a>(<span class="kw">_</span>) =&gt; <a href="https://docs.rs/log/0.4.29/log/macro.info.html">info!</a>(<span class="string">"Build process completed successfully."</span>),
 <a href=#189 id=189 data-nosnippet>189</a>
 <a href=#190 id=190 data-nosnippet>190</a>		<a class="prelude-val" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html#variant.Err">Err</a>(e) =&gt; {
@@ -197,18 +197,19 @@
 <a href=#197 id=197 data-nosnippet>197</a>
 <a href=#198 id=198 data-nosnippet>198</a><span class="attr">#[cfg(test)]
 <a href=#199 id=199 data-nosnippet>199</a></span><span class="kw">mod </span>tests {
-<a href=#200 id=200 data-nosnippet>200</a>	<span class="kw">use </span>super::<span class="kw-2">*</span>;
-<a href=#201 id=201 data-nosnippet>201</a>
-<a href=#202 id=202 data-nosnippet>202</a>	<span class="comment">// Note: Actual tests require integration test setup
-<a href=#203 id=203 data-nosnippet>203</a>	// because Fn() initializes the logger and processes arguments.
-<a href=#204 id=204 data-nosnippet>204</a>	// Unit tests should focus on the underlying Process function
-<a href=#205 id=205 data-nosnippet>205</a>	// instead.
-<a href=#206 id=206 data-nosnippet>206</a>
-<a href=#207 id=207 data-nosnippet>207</a>	</span><span class="attr">#[test]
-<a href=#208 id=208 data-nosnippet>208</a>	</span><span class="kw">fn </span>test_fn_exists() {
-<a href=#209 id=209 data-nosnippet>209</a>		<span class="comment">// Verify the function compiles and is callable
-<a href=#210 id=210 data-nosnippet>210</a>		// (actual execution would be integration tests)
-<a href=#211 id=211 data-nosnippet>211</a>		</span><span class="kw">let _ </span>= Fn <span class="kw">as fn</span>();
-<a href=#212 id=212 data-nosnippet>212</a>	}
-<a href=#213 id=213 data-nosnippet>213</a>}
+<a href=#200 id=200 data-nosnippet>200</a>
+<a href=#201 id=201 data-nosnippet>201</a>	<span class="kw">use </span>super::<span class="kw-2">*</span>;
+<a href=#202 id=202 data-nosnippet>202</a>
+<a href=#203 id=203 data-nosnippet>203</a>	<span class="comment">// Note: Actual tests require integration test setup
+<a href=#204 id=204 data-nosnippet>204</a>	// because Fn() initializes the logger and processes arguments.
+<a href=#205 id=205 data-nosnippet>205</a>	// Unit tests should focus on the underlying Process function
+<a href=#206 id=206 data-nosnippet>206</a>	// instead.
+<a href=#207 id=207 data-nosnippet>207</a>
+<a href=#208 id=208 data-nosnippet>208</a>	</span><span class="attr">#[test]
+<a href=#209 id=209 data-nosnippet>209</a>	</span><span class="kw">fn </span>test_fn_exists() {
+<a href=#210 id=210 data-nosnippet>210</a>		<span class="comment">// Verify the function compiles and is callable
+<a href=#211 id=211 data-nosnippet>211</a>		// (actual execution would be integration tests)
+<a href=#212 id=212 data-nosnippet>212</a>		</span><span class="kw">let _ </span>= Fn <span class="kw">as fn</span>();
+<a href=#213 id=213 data-nosnippet>213</a>	}
+<a href=#214 id=214 data-nosnippet>214</a>}
 </code></pre></div></section></main></body></html>

@@ -78,7 +78,7 @@
 <a href=#78 id=78 data-nosnippet>78</a>//=============================================================================//
 <a href=#79 id=79 data-nosnippet>79</a>// IMPLEMENTATION
 <a href=#80 id=80 data-nosnippet>80</a>//=============================================================================//
-<a href=#81 id=81 data-nosnippet>81</a></span><span class="kw">use </span><a href="Constant.rs.html#107"><span class="kw">crate</span>::Build::Constant::LogEnv</a>;
+<a href=#81 id=81 data-nosnippet>81</a></span><span class="kw">use </span><a href="Constant.rs.html#126"><span class="kw">crate</span>::Build::Constant::LogEnv</a>;
 <a href=#82 id=82 data-nosnippet>82</a>
 <a href=#83 id=83 data-nosnippet>83</a><span class="doccomment">/// Sets up the global logger for the application.
 <a href=#84 id=84 data-nosnippet>84</a>///
@@ -171,7 +171,7 @@
 <a href=#171 id=171 data-nosnippet>171</a>/// The logger is typically called once at program startup, before any other
 <a href=#172 id=172 data-nosnippet>172</a>/// operations that might generate log messages.
 <a href=#173 id=173 data-nosnippet>173</a></span><span class="kw">pub fn </span><a href="../../../Maintain/Build/Logger/fn.Logger.html">Logger</a>() {
-<a href=#174 id=174 data-nosnippet>174</a>	<span class="kw">let </span>LevelText = env::<a href="https://doc.rust-lang.org/nightly/std/env/fn.var.html">var</a>(<a href="Constant.rs.html#107">LogEnv</a>).<a href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html#method.unwrap_or_else">unwrap_or_else</a>(|<span class="kw">_</span>| <span class="string">"info"</span>.<a href="https://doc.rust-lang.org/nightly/alloc/string/trait.ToString.html#tymethod.to_string">to_string</a>());
+<a href=#174 id=174 data-nosnippet>174</a>	<span class="kw">let </span>LevelText = env::<a href="https://doc.rust-lang.org/nightly/std/env/fn.var.html">var</a>(<a href="Constant.rs.html#126">LogEnv</a>).<a href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html#method.unwrap_or_else">unwrap_or_else</a>(|<span class="kw">_</span>| <span class="string">"info"</span>.<a href="https://doc.rust-lang.org/nightly/alloc/string/trait.ToString.html#tymethod.to_string">to_string</a>());
 <a href=#175 id=175 data-nosnippet>175</a>
 <a href=#176 id=176 data-nosnippet>176</a>	<span class="kw">let </span>LogLevel = <a href="#174">LevelText</a>.parse::&lt;<a href="https://docs.rs/log/0.4.29/log/enum.LevelFilter.html">LevelFilter</a>&gt;().<a href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html#method.unwrap_or">unwrap_or</a>(LevelFilter::<a href="https://docs.rs/log/0.4.29/log/enum.LevelFilter.html#variant.Info">Info</a>);
 <a href=#177 id=177 data-nosnippet>177</a>
