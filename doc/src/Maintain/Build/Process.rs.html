@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `Element/Maintain/Source/Build/Process.rs`."><title>Process.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-6b053e98.ttf.woff2,FiraSans-Italic-81dc35de.woff2,FiraSans-Regular-0fe48ade.woff2,FiraSans-MediumItalic-ccf7e434.woff2,FiraSans-Medium-e1aa3f0a.woff2,SourceCodePro-Regular-8badfe75.ttf.woff2,SourceCodePro-Semibold-aa29a496.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2"href="../../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../../static.files/normalize-9960930a.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b7b9f40b.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="Maintain" data-themes="" data-resource-suffix="" data-rustdoc-version="1.96.0-nightly (b41f22de2 2026-03-08)" data-channel="nightly" data-search-js="search-63369b7b.js" data-stringdex-js="stringdex-b897f86f.js" data-settings-js="settings-170eb4bf.js" ><script src="../../../static.files/storage-41dd4d93.js"></script><script defer src="../../../static.files/src-script-813739b1.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-5013f961.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-f7c3ffd8.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-eab170b8.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-044be391.svg"></head><body class="rustdoc src"><a class="skip-main-content" href="#main-content">Skip to main content</a><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer" title="Drag to resize sidebar"></div><main><section id="main-content" class="content" tabindex="-1"><div class="main-heading"><h1><div class="sub-heading">Maintain/Build/</div>Process.rs</h1><rustdoc-toolbar></rustdoc-toolbar></div><div class="example-wrap digits-3"><pre class="rust"><code><a href=#1 id=1 data-nosnippet>1</a><span class="comment">//=============================================================================//
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `Element/Maintain/Source/Build/Process.rs`."><title>Process.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-6b053e98.ttf.woff2,FiraSans-Italic-81dc35de.woff2,FiraSans-Regular-0fe48ade.woff2,FiraSans-MediumItalic-ccf7e434.woff2,FiraSans-Medium-e1aa3f0a.woff2,SourceCodePro-Regular-8badfe75.ttf.woff2,SourceCodePro-Semibold-aa29a496.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2"href="../../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../../static.files/normalize-9960930a.css"><link rel="stylesheet" href="../../../static.files/rustdoc-17e0aaed.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="Maintain" data-themes="" data-resource-suffix="" data-rustdoc-version="1.97.0-nightly (d3cd04068 2026-05-16)" data-channel="nightly" data-search-js="search-fd9372ac.js" data-stringdex-js="stringdex-2da4960a.js" data-settings-js="settings-170eb4bf.js" ><script src="../../../static.files/storage-41dd4d93.js"></script><script defer src="../../../static.files/src-script-813739b1.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-fcd733ba.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-f7c3ffd8.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-eab170b8.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-044be391.svg"></head><body class="rustdoc src"><a class="skip-main-content" href="#main-content">Skip to main content</a><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer" title="Drag to resize sidebar"></div><main><section id="main-content" class="content" tabindex="-1"><div class="main-heading"><h1><div class="sub-heading">Maintain/Build/</div>Process.rs</h1><rustdoc-toolbar></rustdoc-toolbar></div><div class="example-wrap digits-3"><pre class="rust"><code><a href=#1 id=1 data-nosnippet>1</a><span class="comment">//=============================================================================//
 <a href=#2 id=2 data-nosnippet>2</a>// File Path: Element/Maintain/Source/Build/Process.rs
 <a href=#3 id=3 data-nosnippet>3</a>//=============================================================================//
 <a href=#4 id=4 data-nosnippet>4</a>// Module: Process
@@ -225,9 +225,9 @@
 <a href=#225 id=225 data-nosnippet>225</a>	}
 <a href=#226 id=226 data-nosnippet>226</a>
 <a href=#227 id=227 data-nosnippet>227</a>	<span class="comment">// Create guards for file backup and restoration
-<a href=#228 id=228 data-nosnippet>228</a>	</span><span class="kw">let </span><span class="kw-2">mut </span>CargoGuard = <a href="Definition.rs.html#314-333">Guard</a>::<a href="Definition.rs.html#370-408">New</a>(<a href="#215">CargoPath</a>.<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">clone</a>(), <span class="string">"Cargo.toml"</span>.<a href="https://doc.rust-lang.org/nightly/alloc/string/trait.ToString.html#tymethod.to_string">to_string</a>())<span class="question-mark">?</span>;
+<a href=#228 id=228 data-nosnippet>228</a>	</span><span class="kw">let </span><span class="kw-2">mut </span>CargoGuard = Guard::New(CargoPath.clone(), <span class="string">"Cargo.toml"</span>.to_string())<span class="question-mark">?</span>;
 <a href=#229 id=229 data-nosnippet>229</a>
-<a href=#230 id=230 data-nosnippet>230</a>	<span class="kw">let </span><span class="kw-2">mut </span>ConfigGuard = <a href="Definition.rs.html#314-333">Guard</a>::<a href="Definition.rs.html#370-408">New</a>(<a href="#217">ConfigPath</a>.<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">clone</a>(), <span class="string">"Tauri config"</span>.<a href="https://doc.rust-lang.org/nightly/alloc/string/trait.ToString.html#tymethod.to_string">to_string</a>())<span class="question-mark">?</span>;
+<a href=#230 id=230 data-nosnippet>230</a>	<span class="kw">let </span><span class="kw-2">mut </span>ConfigGuard = Guard::New(ConfigPath.clone(), <span class="string">"Tauri config"</span>.to_string())<span class="question-mark">?</span>;
 <a href=#231 id=231 data-nosnippet>231</a>
 <a href=#232 id=232 data-nosnippet>232</a>	<span class="kw">let </span><span class="kw-2">mut </span>NamePartsForProductName = <a href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html">Vec</a>::<a href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html#method.new">new</a>();
 <a href=#233 id=233 data-nosnippet>233</a>
@@ -388,45 +388,45 @@
 <a href=#388 id=388 data-nosnippet>388</a>
 <a href=#389 id=389 data-nosnippet>389</a>	<span class="comment">// Update Cargo.toml if product name changed
 <a href=#390 id=390 data-nosnippet>390</a>	</span><span class="kw">if </span><a href="#368">FinalName</a> != <a href="#191">Argument</a>.Name {
-<a href=#391 id=391 data-nosnippet>391</a>		<a href="TomlEdit.rs.html#135-272">TomlEdit</a>(<span class="kw-2">&amp;</span><a href="#215">CargoPath</a>, <span class="kw-2">&amp;</span><a href="#191">Argument</a>.Name, <span class="kw-2">&amp;</span><a href="#368">FinalName</a>)<span class="question-mark">?</span>;
+<a href=#391 id=391 data-nosnippet>391</a>		TomlEdit(<span class="kw-2">&amp;</span>CargoPath, <span class="kw-2">&amp;</span>Argument.Name, <span class="kw-2">&amp;</span>FinalName)<span class="question-mark">?</span>;
 <a href=#392 id=392 data-nosnippet>392</a>	}
 <a href=#393 id=393 data-nosnippet>393</a>
 <a href=#394 id=394 data-nosnippet>394</a>	<span class="comment">// Get version from Cargo.toml
-<a href=#395 id=395 data-nosnippet>395</a>	</span><span class="kw">let </span>AppVersion = toml::from_str::&lt;<a href="Definition.rs.html#547-553">Manifest</a>&gt;(<span class="kw-2">&amp;</span>fs::<a href="https://doc.rust-lang.org/nightly/std/fs/fn.read_to_string.html">read_to_string</a>(<span class="kw-2">&amp;</span><a href="#215">CargoPath</a>)<span class="question-mark">?</span>)<span class="question-mark">?
+<a href=#395 id=395 data-nosnippet>395</a>	</span><span class="kw">let </span>AppVersion = toml::from_str::&lt;Manifest&gt;(<span class="kw-2">&amp;</span>fs::read_to_string(<span class="kw-2">&amp;</span>CargoPath)<span class="question-mark">?</span>)<span class="question-mark">?
 <a href=#396 id=396 data-nosnippet>396</a>		</span>.<a href="Definition.rs.html#573">get_version</a>()
 <a href=#397 id=397 data-nosnippet>397</a>		.<a href="https://doc.rust-lang.org/nightly/alloc/string/trait.ToString.html#tymethod.to_string">to_string</a>();
 <a href=#398 id=398 data-nosnippet>398</a>
 <a href=#399 id=399 data-nosnippet>399</a>	<span class="comment">// Update Tauri configuration and optionally bundle Node.js sidecar
-<a href=#400 id=400 data-nosnippet>400</a>	</span><a href="JsonEdit.rs.html#156-243">JsonEdit</a>(
-<a href=#401 id=401 data-nosnippet>401</a>		<span class="kw-2">&amp;</span><a href="#217">ConfigPath</a>,
-<a href=#402 id=402 data-nosnippet>402</a>		<span class="kw-2">&amp;</span><a href="#368">FinalName</a>,
-<a href=#403 id=403 data-nosnippet>403</a>		<span class="kw-2">&amp;</span><a href="#385">FinalId</a>,
-<a href=#404 id=404 data-nosnippet>404</a>		<span class="kw-2">&amp;</span><a href="#395">AppVersion</a>,
-<a href=#405 id=405 data-nosnippet>405</a>		(<span class="kw">if let </span><a class="prelude-val" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.Some">Some</a>(version) = <span class="kw-2">&amp;</span><a href="#191">Argument</a>.NodeVersion {
-<a href=#406 id=406 data-nosnippet>406</a>			<a href="https://docs.rs/log/0.4.29/log/macro.info.html">info!</a>(target: <span class="string">"Build"</span>, <span class="string">"Selected Node.js version: {}"</span>, version);
+<a href=#400 id=400 data-nosnippet>400</a>	</span>JsonEdit(
+<a href=#401 id=401 data-nosnippet>401</a>		<span class="kw-2">&amp;</span>ConfigPath,
+<a href=#402 id=402 data-nosnippet>402</a>		<span class="kw-2">&amp;</span>FinalName,
+<a href=#403 id=403 data-nosnippet>403</a>		<span class="kw-2">&amp;</span>FinalId,
+<a href=#404 id=404 data-nosnippet>404</a>		<span class="kw-2">&amp;</span>AppVersion,
+<a href=#405 id=405 data-nosnippet>405</a>		(<span class="kw">if let </span><span class="prelude-val">Some</span>(version) = <span class="kw-2">&amp;</span>Argument.NodeVersion {
+<a href=#406 id=406 data-nosnippet>406</a>			<span class="macro">info!</span>(target: <span class="string">"Build"</span>, <span class="string">"Selected Node.js version: {}"</span>, version);
 <a href=#407 id=407 data-nosnippet>407</a>
-<a href=#408 id=408 data-nosnippet>408</a>			<span class="kw">let </span>Triple = <a href="GetTauriTargetTriple.rs.html#165-183">GetTauriTargetTriple</a>();
+<a href=#408 id=408 data-nosnippet>408</a>			<span class="kw">let </span>Triple = GetTauriTargetTriple();
 <a href=#409 id=409 data-nosnippet>409</a>
 <a href=#410 id=410 data-nosnippet>410</a>			<span class="comment">// Path to the pre-downloaded Node executable
-<a href=#411 id=411 data-nosnippet>411</a>			</span><span class="kw">let </span>Executable = <span class="kw">if </span><a href="https://doc.rust-lang.org/nightly/core/macro.cfg.html">cfg!</a>(target_os = <span class="string">"windows"</span>) {
-<a href=#412 id=412 data-nosnippet>412</a>				<a href="https://doc.rust-lang.org/nightly/std/path/struct.PathBuf.html">PathBuf</a>::<a href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html#tymethod.from">from</a>(<a href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">"./Element/SideCar/{}/NODE/{}/node.exe"</span>, Triple, version))
+<a href=#411 id=411 data-nosnippet>411</a>			</span><span class="kw">let </span>Executable = <span class="kw">if </span><span class="macro">cfg!</span>(target_os = <span class="string">"windows"</span>) {
+<a href=#412 id=412 data-nosnippet>412</a>				PathBuf::from(<span class="macro">format!</span>(<span class="string">"./Element/SideCar/{}/NODE/{}/node.exe"</span>, Triple, version))
 <a href=#413 id=413 data-nosnippet>413</a>			} <span class="kw">else </span>{
-<a href=#414 id=414 data-nosnippet>414</a>				<a href="https://doc.rust-lang.org/nightly/std/path/struct.PathBuf.html">PathBuf</a>::<a href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html#tymethod.from">from</a>(<a href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">"./Element/SideCar/{}/NODE/{}/bin/node"</span>, Triple, version))
+<a href=#414 id=414 data-nosnippet>414</a>				PathBuf::from(<span class="macro">format!</span>(<span class="string">"./Element/SideCar/{}/NODE/{}/bin/node"</span>, Triple, version))
 <a href=#415 id=415 data-nosnippet>415</a>			};
 <a href=#416 id=416 data-nosnippet>416</a>
 <a href=#417 id=417 data-nosnippet>417</a>			<span class="comment">// Define a consistent, temporary directory for the staged binary
-<a href=#418 id=418 data-nosnippet>418</a>			</span><span class="kw">let </span>DirectorySideCarTemporary = <a href="#209">ProjectDir</a>.<a href="https://doc.rust-lang.org/nightly/std/path/struct.Path.html#method.join">join</a>(<span class="string">"Binary"</span>);
+<a href=#418 id=418 data-nosnippet>418</a>			</span><span class="kw">let </span>DirectorySideCarTemporary = ProjectDir.join(<span class="string">"Binary"</span>);
 <a href=#419 id=419 data-nosnippet>419</a>
-<a href=#420 id=420 data-nosnippet>420</a>			fs::<a href="https://doc.rust-lang.org/nightly/std/fs/fn.create_dir_all.html">create_dir_all</a>(<span class="kw-2">&amp;</span><a href="#418">DirectorySideCarTemporary</a>)<span class="question-mark">?</span>;
+<a href=#420 id=420 data-nosnippet>420</a>			fs::create_dir_all(<span class="kw-2">&amp;</span>DirectorySideCarTemporary)<span class="question-mark">?</span>;
 <a href=#421 id=421 data-nosnippet>421</a>
 <a href=#422 id=422 data-nosnippet>422</a>			<span class="comment">// Define the consistent name for the binary that Tauri will bundle
-<a href=#423 id=423 data-nosnippet>423</a>			</span><span class="kw">let </span>PathExecutableDestination = <span class="kw">if </span><a href="https://doc.rust-lang.org/nightly/core/macro.cfg.html">cfg!</a>(target_os = <span class="string">"windows"</span>) {
-<a href=#424 id=424 data-nosnippet>424</a>				<a href="#418">DirectorySideCarTemporary</a>.<a href="https://doc.rust-lang.org/nightly/std/path/struct.Path.html#method.join">join</a>(<a href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">"node-{}.exe"</span>, Triple))
+<a href=#423 id=423 data-nosnippet>423</a>			</span><span class="kw">let </span>PathExecutableDestination = <span class="kw">if </span><span class="macro">cfg!</span>(target_os = <span class="string">"windows"</span>) {
+<a href=#424 id=424 data-nosnippet>424</a>				DirectorySideCarTemporary.join(<span class="macro">format!</span>(<span class="string">"node-{}.exe"</span>, Triple))
 <a href=#425 id=425 data-nosnippet>425</a>			} <span class="kw">else </span>{
-<a href=#426 id=426 data-nosnippet>426</a>				<a href="#418">DirectorySideCarTemporary</a>.<a href="https://doc.rust-lang.org/nightly/std/path/struct.Path.html#method.join">join</a>(<a href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">"node-{}"</span>, Triple))
+<a href=#426 id=426 data-nosnippet>426</a>				DirectorySideCarTemporary.join(<span class="macro">format!</span>(<span class="string">"node-{}"</span>, Triple))
 <a href=#427 id=427 data-nosnippet>427</a>			};
 <a href=#428 id=428 data-nosnippet>428</a>
-<a href=#429 id=429 data-nosnippet>429</a>			<a href="https://docs.rs/log/0.4.29/log/macro.info.html">info!</a>(
+<a href=#429 id=429 data-nosnippet>429</a>			<span class="macro">info!</span>(
 <a href=#430 id=430 data-nosnippet>430</a>				target: <span class="string">"Build"</span>,
 <a href=#431 id=431 data-nosnippet>431</a>
 <a href=#432 id=432 data-nosnippet>432</a>				<span class="string">"Staging sidecar from {} to {}"</span>,
@@ -437,28 +437,28 @@
 <a href=#437 id=437 data-nosnippet>437</a>			);
 <a href=#438 id=438 data-nosnippet>438</a>
 <a href=#439 id=439 data-nosnippet>439</a>			<span class="comment">// Perform the copy
-<a href=#440 id=440 data-nosnippet>440</a>			</span>fs::<a href="https://doc.rust-lang.org/nightly/std/fs/fn.copy.html">copy</a>(<span class="kw-2">&amp;</span><a href="#411">Executable</a>, <span class="kw-2">&amp;</span><a href="#423">PathExecutableDestination</a>)<span class="question-mark">?</span>;
+<a href=#440 id=440 data-nosnippet>440</a>			</span>fs::copy(<span class="kw-2">&amp;</span>Executable, <span class="kw-2">&amp;</span>PathExecutableDestination)<span class="question-mark">?</span>;
 <a href=#441 id=441 data-nosnippet>441</a>
 <a href=#442 id=442 data-nosnippet>442</a>			<span class="comment">// On non-windows, make sure the copied binary is executable
 <a href=#443 id=443 data-nosnippet>443</a>			</span><span class="attr">#[cfg(not(target_os = <span class="string">"windows"</span>))]
 <a href=#444 id=444 data-nosnippet>444</a>			</span>{
-<a href=#445 id=445 data-nosnippet>445</a>				<span class="kw">use </span><a href="https://doc.rust-lang.org/nightly/std/os/unix/fs/trait.PermissionsExt.html">std::os::unix::fs::PermissionsExt</a>;
+<a href=#445 id=445 data-nosnippet>445</a>				<span class="kw">use </span>std::os::unix::fs::PermissionsExt;
 <a href=#446 id=446 data-nosnippet>446</a>
-<a href=#447 id=447 data-nosnippet>447</a>				<span class="kw">let </span><span class="kw-2">mut </span>Permission = fs::<a href="https://doc.rust-lang.org/nightly/std/fs/fn.metadata.html">metadata</a>(<span class="kw-2">&amp;</span><a href="#423">PathExecutableDestination</a>)<span class="question-mark">?</span>.<a href="https://doc.rust-lang.org/nightly/std/fs/struct.Metadata.html#method.permissions">permissions</a>();
+<a href=#447 id=447 data-nosnippet>447</a>				<span class="kw">let </span><span class="kw-2">mut </span>Permission = fs::metadata(<span class="kw-2">&amp;</span>PathExecutableDestination)<span class="question-mark">?</span>.permissions();
 <a href=#448 id=448 data-nosnippet>448</a>
 <a href=#449 id=449 data-nosnippet>449</a>				<span class="comment">// rwxr-xr-x
-<a href=#450 id=450 data-nosnippet>450</a>				</span><a href="#447">Permission</a>.<a href="https://doc.rust-lang.org/nightly/std/os/unix/fs/trait.PermissionsExt.html#tymethod.set_mode">set_mode</a>(<span class="number">0o755</span>);
+<a href=#450 id=450 data-nosnippet>450</a>				</span>Permission.set_mode(<span class="number">0o755</span>);
 <a href=#451 id=451 data-nosnippet>451</a>
-<a href=#452 id=452 data-nosnippet>452</a>				fs::<a href="https://doc.rust-lang.org/nightly/std/fs/fn.set_permissions.html">set_permissions</a>(<span class="kw-2">&amp;</span><a href="#423">PathExecutableDestination</a>, <a href="#447">Permission</a>)<span class="question-mark">?</span>;
+<a href=#452 id=452 data-nosnippet>452</a>				fs::set_permissions(<span class="kw-2">&amp;</span>PathExecutableDestination, Permission)<span class="question-mark">?</span>;
 <a href=#453 id=453 data-nosnippet>453</a>			}
 <a href=#454 id=454 data-nosnippet>454</a>
-<a href=#455 id=455 data-nosnippet>455</a>			<a class="prelude-val" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.Some">Some</a>(<span class="string">"Binary/node"</span>.<a href="https://doc.rust-lang.org/nightly/alloc/string/trait.ToString.html#tymethod.to_string">to_string</a>())
+<a href=#455 id=455 data-nosnippet>455</a>			<span class="prelude-val">Some</span>(<span class="string">"Binary/node"</span>.to_string())
 <a href=#456 id=456 data-nosnippet>456</a>		} <span class="kw">else </span>{
-<a href=#457 id=457 data-nosnippet>457</a>			<a href="https://docs.rs/log/0.4.29/log/macro.info.html">info!</a>(target: <span class="string">"Build"</span>, <span class="string">"No Node.js flavour selected for bundling."</span>);
+<a href=#457 id=457 data-nosnippet>457</a>			<span class="macro">info!</span>(target: <span class="string">"Build"</span>, <span class="string">"No Node.js flavour selected for bundling."</span>);
 <a href=#458 id=458 data-nosnippet>458</a>
-<a href=#459 id=459 data-nosnippet>459</a>			<a class="prelude-val" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.None">None</a>
-<a href=#460 id=460 data-nosnippet>460</a>		})
-<a href=#461 id=461 data-nosnippet>461</a>		.<a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#method.as_deref">as_deref</a>(),
+<a href=#459 id=459 data-nosnippet>459</a>			<span class="prelude-val">None
+<a href=#460 id=460 data-nosnippet>460</a>		</span>})
+<a href=#461 id=461 data-nosnippet>461</a>		.as_deref(),
 <a href=#462 id=462 data-nosnippet>462</a>	)<span class="question-mark">?</span>;
 <a href=#463 id=463 data-nosnippet>463</a>
 <a href=#464 id=464 data-nosnippet>464</a>	<span class="comment">// On macOS, inject dev-control environment variables into Info.plist.
@@ -475,7 +475,7 @@
 <a href=#475 id=475 data-nosnippet>475</a>			<span class="kw">let </span>PlistEnvVars = <a href="#597-652">BuildPlistEnvironment</a>();
 <a href=#476 id=476 data-nosnippet>476</a>
 <a href=#477 id=477 data-nosnippet>477</a>			<span class="kw">if </span>!<a href="#475">PlistEnvVars</a>.<a href="https://doc.rust-lang.org/nightly/alloc/collections/btree/map/struct.BTreeMap.html#method.is_empty">is_empty</a>() {
-<a href=#478 id=478 data-nosnippet>478</a>				<span class="kw">let </span><span class="kw-2">mut </span>PlistGuard = <a href="Definition.rs.html#314-333">Guard</a>::<a href="Definition.rs.html#370-408">New</a>(<a href="#472">PlistPath</a>.<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">clone</a>(), <span class="string">"Info.plist"</span>.<a href="https://doc.rust-lang.org/nightly/alloc/string/trait.ToString.html#tymethod.to_string">to_string</a>())<span class="question-mark">?</span>;
+<a href=#478 id=478 data-nosnippet>478</a>				<span class="kw">let </span><span class="kw-2">mut </span>PlistGuard = Guard::New(PlistPath.clone(), <span class="string">"Info.plist"</span>.to_string())<span class="question-mark">?</span>;
 <a href=#479 id=479 data-nosnippet>479</a>
 <a href=#480 id=480 data-nosnippet>480</a>				<span class="kw">let _ </span>= <a href="PlistEdit.rs.html#120-156">PlistEdit</a>(<span class="kw-2">&amp;</span><a href="#472">PlistPath</a>, <span class="kw-2">&amp;</span><a href="#475">PlistEnvVars</a>);
 <a href=#481 id=481 data-nosnippet>481</a>
@@ -545,11 +545,11 @@
 <a href=#545 id=545 data-nosnippet>545</a>
 <a href=#546 id=546 data-nosnippet>546</a>	<a href="https://docs.rs/log/0.4.29/log/macro.info.html">info!</a>(target: <span class="string">"Build::Exec"</span>, <span class="string">"Executing final build command: {:?}"</span>, ShellCommand);
 <a href=#547 id=547 data-nosnippet>547</a>
-<a href=#548 id=548 data-nosnippet>548</a>	<span class="kw">let </span>Status = <a href="#524">ShellCommand</a>
-<a href=#549 id=549 data-nosnippet>549</a>		.<a href="https://doc.rust-lang.org/nightly/std/process/struct.Command.html#method.current_dir">current_dir</a>(env::<a href="https://doc.rust-lang.org/nightly/std/env/fn.current_dir.html">current_dir</a>()<span class="question-mark">?</span>)
-<a href=#550 id=550 data-nosnippet>550</a>		.<a href="https://doc.rust-lang.org/nightly/std/process/struct.Command.html#method.stdout">stdout</a>(<a href="https://doc.rust-lang.org/nightly/std/process/struct.Stdio.html">Stdio</a>::<a href="https://doc.rust-lang.org/nightly/std/process/struct.Stdio.html#method.inherit">inherit</a>())
-<a href=#551 id=551 data-nosnippet>551</a>		.<a href="https://doc.rust-lang.org/nightly/std/process/struct.Command.html#method.stderr">stderr</a>(<a href="https://doc.rust-lang.org/nightly/std/process/struct.Stdio.html">Stdio</a>::<a href="https://doc.rust-lang.org/nightly/std/process/struct.Stdio.html#method.inherit">inherit</a>())
-<a href=#552 id=552 data-nosnippet>552</a>		.<a href="https://doc.rust-lang.org/nightly/std/process/struct.Command.html#method.status">status</a>()<span class="question-mark">?</span>;
+<a href=#548 id=548 data-nosnippet>548</a>	<span class="kw">let </span>Status = ShellCommand
+<a href=#549 id=549 data-nosnippet>549</a>		.current_dir(env::current_dir()<span class="question-mark">?</span>)
+<a href=#550 id=550 data-nosnippet>550</a>		.stdout(Stdio::inherit())
+<a href=#551 id=551 data-nosnippet>551</a>		.stderr(Stdio::inherit())
+<a href=#552 id=552 data-nosnippet>552</a>		.status()<span class="question-mark">?</span>;
 <a href=#553 id=553 data-nosnippet>553</a>
 <a href=#554 id=554 data-nosnippet>554</a>	<span class="comment">// Handle build failure
 <a href=#555 id=555 data-nosnippet>555</a>	</span><span class="kw">if </span>!<a href="#548">Status</a>.<a href="https://doc.rust-lang.org/nightly/std/process/struct.ExitStatus.html#method.success">success</a>() {
@@ -566,7 +566,7 @@
 <a href=#566 id=566 data-nosnippet>566</a>	</span><span class="kw">let </span>DirectorySideCarTemporary = <a href="#209">ProjectDir</a>.<a href="https://doc.rust-lang.org/nightly/std/path/struct.Path.html#method.join">join</a>(<span class="string">"bin"</span>);
 <a href=#567 id=567 data-nosnippet>567</a>
 <a href=#568 id=568 data-nosnippet>568</a>	<span class="kw">if </span><a href="#566">DirectorySideCarTemporary</a>.<a href="https://doc.rust-lang.org/nightly/std/path/struct.Path.html#method.exists">exists</a>() {
-<a href=#569 id=569 data-nosnippet>569</a>		fs::<a href="https://doc.rust-lang.org/nightly/std/fs/fn.remove_dir_all.html">remove_dir_all</a>(<span class="kw-2">&amp;</span><a href="#566">DirectorySideCarTemporary</a>)<span class="question-mark">?</span>;
+<a href=#569 id=569 data-nosnippet>569</a>		fs::remove_dir_all(<span class="kw-2">&amp;</span>DirectorySideCarTemporary)<span class="question-mark">?</span>;
 <a href=#570 id=570 data-nosnippet>570</a>
 <a href=#571 id=571 data-nosnippet>571</a>		<a href="https://docs.rs/log/0.4.29/log/macro.info.html">info!</a>(target: <span class="string">"Build"</span>, <span class="string">"Cleaned up temporary sidecar directory."</span>);
 <a href=#572 id=572 data-nosnippet>572</a>	}
