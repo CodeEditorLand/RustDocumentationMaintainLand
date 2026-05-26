@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["ApplyPatches","LineColToByte","SpanBytes","StmtLineRange","StmtSpan"],"struct":["Patch","SpanCollector"]};
