@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"fn":["CollectFreeIdents","ContainsUnsafe","IsFreeVarSafe","IsMovedInStmts","IsSafe","NodeCount"],"struct":["FreeIdentCollector","MoveDetector","NodeCounter","UnsafeDetector"]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"fn":["ApplyTemplateDefaults","MergeShellEnv","Resolve","Validate","filter_run_vars","format_for_display","get_workbench","is_debug","is_hot_reload_enabled","is_watch_enabled"]};

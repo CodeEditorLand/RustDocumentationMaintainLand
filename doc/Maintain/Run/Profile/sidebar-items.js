@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"fn":["default_name","from_env","get_run_config","load_profiles","merge","resolve_name","validate"]};

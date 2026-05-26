@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"fn":["BlockShadowsTarget","ClosureParamShadows","ExprToTokenStream","FindSubstSite","IsTargetIdent","NeedsParen","SubstituteInTokenStream","SubstituteRef"],"struct":["Eliminator","Substitutor"]};

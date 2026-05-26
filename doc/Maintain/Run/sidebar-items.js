@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":["CLI","Constant","Definition","Environment","Error","Fn","Logger","Process","Profile"]};

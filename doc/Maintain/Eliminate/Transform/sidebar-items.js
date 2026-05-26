@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"fn":["CollectBlockPatches","CollectInnerBlockPatches","PreservePass","Run","RunPreserve","StmtNestedBlock","StmtToText","StmtTokensMatch","TryBlockPreserve","TryItemPreserve","TryPatchSource"],"mod":["Collect","Count","Inline","Patch","Safe"]};
