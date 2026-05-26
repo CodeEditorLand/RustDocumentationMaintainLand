@@ -59,7 +59,7 @@
 <a href=#59 id=59 data-nosnippet>59</a>//
 <a href=#60 id=60 data-nosnippet>60</a>// Example 1: Direct invocation
 <a href=#61 id=61 data-nosnippet>61</a></span><span class="kw">use </span>clap::Parser;
-<a href=#62 id=62 data-nosnippet>62</a><span class="kw">use </span>log::{<a href="https://docs.rs/log/0.4.29/log/macro.error.html">error</a>, <a href="https://docs.rs/log/0.4.29/log/macro.info.html">info</a>};
+<a href=#62 id=62 data-nosnippet>62</a><span class="kw">use </span>log::{<a href="https://docs.rs/log/0.4.30/log/macro.error.html">error</a>, <a href="https://docs.rs/log/0.4.30/log/macro.info.html">info</a>};
 <a href=#63 id=63 data-nosnippet>63</a>
 <a href=#64 id=64 data-nosnippet>64</a><span class="doccomment">/// ```rust
 <a href=#65 id=65 data-nosnippet>65</a>/// use crate::Maintain::Source::Build::Fn;
@@ -181,14 +181,14 @@
 <a href=#181 id=181 data-nosnippet>181</a>	<span class="comment">// Step 2: Parse command-line arguments and environment variables
 <a href=#182 id=182 data-nosnippet>182</a>	</span><span class="kw">let </span>Argument = <a href="Definition.rs.html#132-268">Argument</a>::parse();
 <a href=#183 id=183 data-nosnippet>183</a>
-<a href=#184 id=184 data-nosnippet>184</a>	<a href="https://docs.rs/log/0.4.29/log/macro.debug.html">log::debug!</a>(<span class="string">"Parsed arguments: {:?}"</span>, Argument);
+<a href=#184 id=184 data-nosnippet>184</a>	<a href="https://docs.rs/log/0.4.30/log/macro.debug.html">log::debug!</a>(<span class="string">"Parsed arguments: {:?}"</span>, Argument);
 <a href=#185 id=185 data-nosnippet>185</a>
 <a href=#186 id=186 data-nosnippet>186</a>	<span class="comment">// Step 3: Execute the build orchestration process
 <a href=#187 id=187 data-nosnippet>187</a>	</span><span class="kw">match </span><a href="Process.rs.html#191-585">Process</a>(<span class="kw-2">&amp;</span><a href="#182">Argument</a>) {
-<a href=#188 id=188 data-nosnippet>188</a>		<a class="prelude-val" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html#variant.Ok">Ok</a>(<span class="kw">_</span>) =&gt; <a href="https://docs.rs/log/0.4.29/log/macro.info.html">info!</a>(<span class="string">"Build process completed successfully."</span>),
+<a href=#188 id=188 data-nosnippet>188</a>		<a class="prelude-val" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html#variant.Ok">Ok</a>(<span class="kw">_</span>) =&gt; <a href="https://docs.rs/log/0.4.30/log/macro.info.html">info!</a>(<span class="string">"Build process completed successfully."</span>),
 <a href=#189 id=189 data-nosnippet>189</a>
 <a href=#190 id=190 data-nosnippet>190</a>		<a class="prelude-val" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html#variant.Err">Err</a>(e) =&gt; {
-<a href=#191 id=191 data-nosnippet>191</a>			<a href="https://docs.rs/log/0.4.29/log/macro.error.html">error!</a>(<span class="string">"Build process failed: {}"</span>, e);
+<a href=#191 id=191 data-nosnippet>191</a>			<a href="https://docs.rs/log/0.4.30/log/macro.error.html">error!</a>(<span class="string">"Build process failed: {}"</span>, e);
 <a href=#192 id=192 data-nosnippet>192</a>
 <a href=#193 id=193 data-nosnippet>193</a>			std::process::<a href="https://doc.rust-lang.org/nightly/std/process/fn.exit.html">exit</a>(<span class="number">1</span>);
 <a href=#194 id=194 data-nosnippet>194</a>		},

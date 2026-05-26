@@ -62,7 +62,7 @@
 <a href=#62 id=62 data-nosnippet>62</a>
 <a href=#63 id=63 data-nosnippet>63</a><span class="kw">use </span>colored::<span class="kw-2">*</span>;
 <a href=#64 id=64 data-nosnippet>64</a><span class="kw">use </span>env_logger::Builder;
-<a href=#65 id=65 data-nosnippet>65</a><span class="kw">use </span><a href="https://docs.rs/log/0.4.29/log/enum.LevelFilter.html">log::LevelFilter</a>;
+<a href=#65 id=65 data-nosnippet>65</a><span class="kw">use </span><a href="https://docs.rs/log/0.4.30/log/enum.LevelFilter.html">log::LevelFilter</a>;
 <a href=#66 id=66 data-nosnippet>66</a>
 <a href=#67 id=67 data-nosnippet>67</a><span class="doccomment">/// ```rust
 <a href=#68 id=68 data-nosnippet>68</a>/// use crate::Maintain::Source::Build::Logger;
@@ -173,21 +173,21 @@
 <a href=#173 id=173 data-nosnippet>173</a></span><span class="kw">pub fn </span><a href="../../../Maintain/Build/Logger/fn.Logger.html">Logger</a>() {
 <a href=#174 id=174 data-nosnippet>174</a>	<span class="kw">let </span>LevelText = env::<a href="https://doc.rust-lang.org/nightly/std/env/fn.var.html">var</a>(<a href="Constant.rs.html#126">LogEnv</a>).<a href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html#method.unwrap_or_else">unwrap_or_else</a>(|<span class="kw">_</span>| <span class="string">"info"</span>.<a href="https://doc.rust-lang.org/nightly/alloc/string/trait.ToString.html#tymethod.to_string">to_string</a>());
 <a href=#175 id=175 data-nosnippet>175</a>
-<a href=#176 id=176 data-nosnippet>176</a>	<span class="kw">let </span>LogLevel = <a href="#174">LevelText</a>.parse::&lt;<a href="https://docs.rs/log/0.4.29/log/enum.LevelFilter.html">LevelFilter</a>&gt;().<a href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html#method.unwrap_or">unwrap_or</a>(LevelFilter::<a href="https://docs.rs/log/0.4.29/log/enum.LevelFilter.html#variant.Info">Info</a>);
+<a href=#176 id=176 data-nosnippet>176</a>	<span class="kw">let </span>LogLevel = <a href="#174">LevelText</a>.parse::&lt;<a href="https://docs.rs/log/0.4.30/log/enum.LevelFilter.html">LevelFilter</a>&gt;().<a href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html#method.unwrap_or">unwrap_or</a>(LevelFilter::<a href="https://docs.rs/log/0.4.30/log/enum.LevelFilter.html#variant.Info">Info</a>);
 <a href=#177 id=177 data-nosnippet>177</a>
 <a href=#178 id=178 data-nosnippet>178</a>	Builder::new()
 <a href=#179 id=179 data-nosnippet>179</a>		.filter_level(<a href="#176">LogLevel</a>)
 <a href=#180 id=180 data-nosnippet>180</a>		.format(|Buffer, Record| {
-<a href=#181 id=181 data-nosnippet>181</a>			<span class="kw">let </span>LevelStyle = <span class="kw">match </span><a href="#180">Record</a>.<a href="https://docs.rs/log/0.4.29/log/struct.Record.html#method.level">level</a>() {
-<a href=#182 id=182 data-nosnippet>182</a>				log::Level::<a href="https://docs.rs/log/0.4.29/log/enum.Level.html#variant.Error">Error</a> =&gt; <span class="string">"ERROR"</span>.red().bold(),
+<a href=#181 id=181 data-nosnippet>181</a>			<span class="kw">let </span>LevelStyle = <span class="kw">match </span><a href="#180">Record</a>.<a href="https://docs.rs/log/0.4.30/log/struct.Record.html#method.level">level</a>() {
+<a href=#182 id=182 data-nosnippet>182</a>				log::Level::<a href="https://docs.rs/log/0.4.30/log/enum.Level.html#variant.Error">Error</a> =&gt; <span class="string">"ERROR"</span>.red().bold(),
 <a href=#183 id=183 data-nosnippet>183</a>
-<a href=#184 id=184 data-nosnippet>184</a>				log::Level::<a href="https://docs.rs/log/0.4.29/log/enum.Level.html#variant.Warn">Warn</a> =&gt; <span class="string">"WARN"</span>.yellow().bold(),
+<a href=#184 id=184 data-nosnippet>184</a>				log::Level::<a href="https://docs.rs/log/0.4.30/log/enum.Level.html#variant.Warn">Warn</a> =&gt; <span class="string">"WARN"</span>.yellow().bold(),
 <a href=#185 id=185 data-nosnippet>185</a>
-<a href=#186 id=186 data-nosnippet>186</a>				log::Level::<a href="https://docs.rs/log/0.4.29/log/enum.Level.html#variant.Info">Info</a> =&gt; <span class="string">"INFO"</span>.green(),
+<a href=#186 id=186 data-nosnippet>186</a>				log::Level::<a href="https://docs.rs/log/0.4.30/log/enum.Level.html#variant.Info">Info</a> =&gt; <span class="string">"INFO"</span>.green(),
 <a href=#187 id=187 data-nosnippet>187</a>
-<a href=#188 id=188 data-nosnippet>188</a>				log::Level::<a href="https://docs.rs/log/0.4.29/log/enum.Level.html#variant.Debug">Debug</a> =&gt; <span class="string">"DEBUG"</span>.blue(),
+<a href=#188 id=188 data-nosnippet>188</a>				log::Level::<a href="https://docs.rs/log/0.4.30/log/enum.Level.html#variant.Debug">Debug</a> =&gt; <span class="string">"DEBUG"</span>.blue(),
 <a href=#189 id=189 data-nosnippet>189</a>
-<a href=#190 id=190 data-nosnippet>190</a>				log::Level::<a href="https://docs.rs/log/0.4.29/log/enum.Level.html#variant.Trace">Trace</a> =&gt; <span class="string">"TRACE"</span>.magenta(),
+<a href=#190 id=190 data-nosnippet>190</a>				log::Level::<a href="https://docs.rs/log/0.4.30/log/enum.Level.html#variant.Trace">Trace</a> =&gt; <span class="string">"TRACE"</span>.magenta(),
 <a href=#191 id=191 data-nosnippet>191</a>			};
 <a href=#192 id=192 data-nosnippet>192</a>
 <a href=#193 id=193 data-nosnippet>193</a>			<a href="https://doc.rust-lang.org/nightly/core/macro.writeln.html">writeln!</a>(<a href="#180">Buffer</a>, <span class="string">"[{}] [{}]: {}"</span>, <span class="string">"Build"</span>.red(), LevelStyle, Record.args())

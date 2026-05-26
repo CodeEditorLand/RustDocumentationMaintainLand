@@ -70,7 +70,7 @@
 <a href=#70 id=70 data-nosnippet>70</a>	process::{<a href="https://doc.rust-lang.org/nightly/std/process/struct.Command.html">Command</a> <span class="kw">as </span>ProcessCommand, <a href="https://doc.rust-lang.org/nightly/std/process/struct.Stdio.html">Stdio</a>},
 <a href=#71 id=71 data-nosnippet>71</a>};
 <a href=#72 id=72 data-nosnippet>72</a>
-<a href=#73 id=73 data-nosnippet>73</a><span class="kw">use </span><a href="https://docs.rs/log/0.4.29/log/macro.info.html">log::info</a>;
+<a href=#73 id=73 data-nosnippet>73</a><span class="kw">use </span><a href="https://docs.rs/log/0.4.30/log/macro.info.html">log::info</a>;
 <a href=#74 id=74 data-nosnippet>74</a><span class="kw">use </span>toml;
 <a href=#75 id=75 data-nosnippet>75</a>
 <a href=#76 id=76 data-nosnippet>76</a><span class="doccomment">/// ```rust
@@ -105,7 +105,7 @@
 <a href=#105 id=105 data-nosnippet>105</a>		<a href="Constant.rs.html#101">NameDelimiter</a>,
 <a href=#106 id=106 data-nosnippet>106</a>		<a href="Constant.rs.html#87">PlistFile</a>,
 <a href=#107 id=107 data-nosnippet>107</a>	},
-<a href=#108 id=108 data-nosnippet>108</a>	Definition::{<a href="Definition.rs.html#132-268">Argument</a>, <a href="Definition.rs.html#314-333">Guard</a>, <a href="Definition.rs.html#547-553">Manifest</a>},
+<a href=#108 id=108 data-nosnippet>108</a>	Definition::{<a href="Definition.rs.html#132-268">Argument</a>, <a href="Definition.rs.html#314-332">Guard</a>, <a href="Definition.rs.html#546-552">Manifest</a>},
 <a href=#109 id=109 data-nosnippet>109</a>	<a href="GetTauriTargetTriple.rs.html#165-183">GetTauriTargetTriple::GetTauriTargetTriple</a>,
 <a href=#110 id=110 data-nosnippet>110</a>	<a href="JsonEdit.rs.html#156-243">JsonEdit::JsonEdit</a>,
 <a href=#111 id=111 data-nosnippet>111</a>	<a href="Pascalize.rs.html#122-132">Pascalize::Pascalize</a>,
@@ -189,9 +189,9 @@
 <a href=#189 id=189 data-nosnippet>189</a>/// Process(&amp;argument)?;
 <a href=#190 id=190 data-nosnippet>190</a>/// ```
 <a href=#191 id=191 data-nosnippet>191</a></span><span class="kw">pub fn </span><a href="../../../Maintain/Build/Process/fn.Process.html">Process</a>(Argument:<span class="kw-2">&amp;</span><a href="Definition.rs.html#132-268">Argument</a>) -&gt; <a class="prelude-ty" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html">Result</a>&lt;(), <a href="Error.rs.html#108-204">BuildError</a>&gt; {
-<a href=#192 id=192 data-nosnippet>192</a>	<a href="https://docs.rs/log/0.4.29/log/macro.info.html">info!</a>(target: <span class="string">"Build"</span>, <span class="string">"Starting build orchestration..."</span>);
+<a href=#192 id=192 data-nosnippet>192</a>	<a href="https://docs.rs/log/0.4.30/log/macro.info.html">info!</a>(target: <span class="string">"Build"</span>, <span class="string">"Starting build orchestration..."</span>);
 <a href=#193 id=193 data-nosnippet>193</a>
-<a href=#194 id=194 data-nosnippet>194</a>	<a href="https://docs.rs/log/0.4.29/log/macro.debug.html">log::debug!</a>(target: <span class="string">"Build"</span>, <span class="string">"Argument: {:?}"</span>, Argument);
+<a href=#194 id=194 data-nosnippet>194</a>	<a href="https://docs.rs/log/0.4.30/log/macro.debug.html">log::debug!</a>(target: <span class="string">"Build"</span>, <span class="string">"Argument: {:?}"</span>, Argument);
 <a href=#195 id=195 data-nosnippet>195</a>
 <a href=#196 id=196 data-nosnippet>196</a>	<span class="comment">// Tier fan-out observability. The shell helper
 <a href=#197 id=197 data-nosnippet>197</a>	// `Maintain/Script/TierEnvironment.sh` exports `CargoFeatures` and
@@ -199,11 +199,11 @@
 <a href=#199 id=199 data-nosnippet>199</a>	// which tier set shipped into the binary without having to replay the
 <a href=#200 id=200 data-nosnippet>200</a>	// shell environment.
 <a href=#201 id=201 data-nosnippet>201</a>	</span><span class="kw">if let </span><a class="prelude-val" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.Some">Some</a>(Features) = <a href="#191">Argument</a>.CargoFeatures.<a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#method.as_deref">as_deref</a>().<a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#method.filter">filter</a>(|v| !<a href="#201">v</a>.<a href="https://doc.rust-lang.org/nightly/core/foreigntype.str.html#method.is_empty">is_empty</a>()) {
-<a href=#202 id=202 data-nosnippet>202</a>		<a href="https://docs.rs/log/0.4.29/log/macro.info.html">info!</a>(target: <span class="string">"Build"</span>, <span class="string">"Cargo features: {}"</span>, Features);
+<a href=#202 id=202 data-nosnippet>202</a>		<a href="https://docs.rs/log/0.4.30/log/macro.info.html">info!</a>(target: <span class="string">"Build"</span>, <span class="string">"Cargo features: {}"</span>, Features);
 <a href=#203 id=203 data-nosnippet>203</a>	}
 <a href=#204 id=204 data-nosnippet>204</a>
 <a href=#205 id=205 data-nosnippet>205</a>	<span class="kw">if let </span><a class="prelude-val" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.Some">Some</a>(Defines) = <a href="#191">Argument</a>.CocoonEsbuildDefine.<a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#method.as_deref">as_deref</a>().<a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#method.filter">filter</a>(|v| !<a href="#205">v</a>.<a href="https://doc.rust-lang.org/nightly/core/foreigntype.str.html#method.is_empty">is_empty</a>()) {
-<a href=#206 id=206 data-nosnippet>206</a>		<a href="https://docs.rs/log/0.4.29/log/macro.info.html">info!</a>(target: <span class="string">"Build"</span>, <span class="string">"Cocoon esbuild defines: {}"</span>, Defines);
+<a href=#206 id=206 data-nosnippet>206</a>		<a href="https://docs.rs/log/0.4.30/log/macro.info.html">info!</a>(target: <span class="string">"Build"</span>, <span class="string">"Cocoon esbuild defines: {}"</span>, Defines);
 <a href=#207 id=207 data-nosnippet>207</a>	}
 <a href=#208 id=208 data-nosnippet>208</a>
 <a href=#209 id=209 data-nosnippet>209</a>	<span class="kw">let </span>ProjectDir = <a href="https://doc.rust-lang.org/nightly/std/path/struct.PathBuf.html">PathBuf</a>::<a href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html#tymethod.from">from</a>(<span class="kw-2">&amp;</span><a href="#191">Argument</a>.Directory);
@@ -371,7 +371,7 @@
 <a href=#371 id=371 data-nosnippet>371</a>		<a href="#191">Argument</a>.Name.<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">clone</a>()
 <a href=#372 id=372 data-nosnippet>372</a>	};
 <a href=#373 id=373 data-nosnippet>373</a>
-<a href=#374 id=374 data-nosnippet>374</a>	<a href="https://docs.rs/log/0.4.29/log/macro.info.html">info!</a>(target: <span class="string">"Build"</span>, <span class="string">"Final generated product name: '{}'"</span>, FinalName);
+<a href=#374 id=374 data-nosnippet>374</a>	<a href="https://docs.rs/log/0.4.30/log/macro.info.html">info!</a>(target: <span class="string">"Build"</span>, <span class="string">"Final generated product name: '{}'"</span>, FinalName);
 <a href=#375 id=375 data-nosnippet>375</a>
 <a href=#376 id=376 data-nosnippet>376</a>	<span class="comment">// Generate final bundle identifier
 <a href=#377 id=377 data-nosnippet>377</a>	</span><a href="#234">NamePartsForId</a>.<a href="https://doc.rust-lang.org/nightly/core/iter/traits/collect/trait.Extend.html#tymethod.extend">extend</a>(<a href="WordsFromPascal.rs.html#143-177">WordsFromPascal</a>(<span class="kw-2">&amp;</span><a href="#191">Argument</a>.Name));
@@ -384,7 +384,7 @@
 <a href=#384 id=384 data-nosnippet>384</a>
 <a href=#385 id=385 data-nosnippet>385</a>	<span class="kw">let </span>FinalId = <a href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">"{}{}{}"</span>, Argument.Prefix, IdDelimiter, IdSuffix);
 <a href=#386 id=386 data-nosnippet>386</a>
-<a href=#387 id=387 data-nosnippet>387</a>	<a href="https://docs.rs/log/0.4.29/log/macro.info.html">info!</a>(target: <span class="string">"Build"</span>, <span class="string">"Generated bundle identifier: '{}'"</span>, FinalId);
+<a href=#387 id=387 data-nosnippet>387</a>	<a href="https://docs.rs/log/0.4.30/log/macro.info.html">info!</a>(target: <span class="string">"Build"</span>, <span class="string">"Generated bundle identifier: '{}'"</span>, FinalId);
 <a href=#388 id=388 data-nosnippet>388</a>
 <a href=#389 id=389 data-nosnippet>389</a>	<span class="comment">// Update Cargo.toml if product name changed
 <a href=#390 id=390 data-nosnippet>390</a>	</span><span class="kw">if </span><a href="#368">FinalName</a> != <a href="#191">Argument</a>.Name {
@@ -393,7 +393,7 @@
 <a href=#393 id=393 data-nosnippet>393</a>
 <a href=#394 id=394 data-nosnippet>394</a>	<span class="comment">// Get version from Cargo.toml
 <a href=#395 id=395 data-nosnippet>395</a>	</span><span class="kw">let </span>AppVersion = toml::from_str::&lt;Manifest&gt;(<span class="kw-2">&amp;</span>fs::read_to_string(<span class="kw-2">&amp;</span>CargoPath)<span class="question-mark">?</span>)<span class="question-mark">?
-<a href=#396 id=396 data-nosnippet>396</a>		</span>.<a href="Definition.rs.html#573">get_version</a>()
+<a href=#396 id=396 data-nosnippet>396</a>		</span>.<a href="Definition.rs.html#572">get_version</a>()
 <a href=#397 id=397 data-nosnippet>397</a>		.<a href="https://doc.rust-lang.org/nightly/alloc/string/trait.ToString.html#tymethod.to_string">to_string</a>();
 <a href=#398 id=398 data-nosnippet>398</a>
 <a href=#399 id=399 data-nosnippet>399</a>	<span class="comment">// Update Tauri configuration and optionally bundle Node.js sidecar
@@ -479,7 +479,7 @@
 <a href=#479 id=479 data-nosnippet>479</a>
 <a href=#480 id=480 data-nosnippet>480</a>				<span class="kw">let _ </span>= <a href="PlistEdit.rs.html#120-156">PlistEdit</a>(<span class="kw-2">&amp;</span><a href="#472">PlistPath</a>, <span class="kw-2">&amp;</span><a href="#475">PlistEnvVars</a>);
 <a href=#481 id=481 data-nosnippet>481</a>
-<a href=#482 id=482 data-nosnippet>482</a>				<a href="#478">PlistGuard</a>.<a href="Definition.rs.html#448-454">disarm</a>();
+<a href=#482 id=482 data-nosnippet>482</a>				<a href="#478">PlistGuard</a>.<a href="Definition.rs.html#447-453">disarm</a>();
 <a href=#483 id=483 data-nosnippet>483</a>			}
 <a href=#484 id=484 data-nosnippet>484</a>		}
 <a href=#485 id=485 data-nosnippet>485</a>	}
@@ -506,7 +506,7 @@
 <a href=#506 id=506 data-nosnippet>506</a>			<span class="kw">let </span>AlreadyPresent = <a href="#497">CommandArguments</a>.<a href="https://doc.rust-lang.org/nightly/core/foreigntype.slice.html#method.iter">iter</a>().<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html#method.any">any</a>(|a| <a href="#506">a</a> == <span class="string">"--features" </span>|| <a href="#506">a</a> == <span class="string">"-f"</span>);
 <a href=#507 id=507 data-nosnippet>507</a>
 <a href=#508 id=508 data-nosnippet>508</a>			<span class="kw">if </span>!<a href="#506">AlreadyPresent</a> {
-<a href=#509 id=509 data-nosnippet>509</a>				<a href="https://docs.rs/log/0.4.29/log/macro.info.html">info!</a>(
+<a href=#509 id=509 data-nosnippet>509</a>				<a href="https://docs.rs/log/0.4.30/log/macro.info.html">info!</a>(
 <a href=#510 id=510 data-nosnippet>510</a>					target: <span class="string">"Build"</span>,
 <a href=#511 id=511 data-nosnippet>511</a>
 <a href=#512 id=512 data-nosnippet>512</a>					<span class="string">"Forwarding Cargo features to `tauri build`: {}"</span>,
@@ -543,7 +543,7 @@
 <a href=#543 id=543 data-nosnippet>543</a>		<a href="#524">ShellCommand</a>.<a href="https://doc.rust-lang.org/nightly/std/process/struct.Command.html#method.env">env</a>(<a href="Constant.rs.html#112">CocoonEsbuildDefineEnv</a>, <a href="#542">Defines</a>);
 <a href=#544 id=544 data-nosnippet>544</a>	}
 <a href=#545 id=545 data-nosnippet>545</a>
-<a href=#546 id=546 data-nosnippet>546</a>	<a href="https://docs.rs/log/0.4.29/log/macro.info.html">info!</a>(target: <span class="string">"Build::Exec"</span>, <span class="string">"Executing final build command: {:?}"</span>, ShellCommand);
+<a href=#546 id=546 data-nosnippet>546</a>	<a href="https://docs.rs/log/0.4.30/log/macro.info.html">info!</a>(target: <span class="string">"Build::Exec"</span>, <span class="string">"Executing final build command: {:?}"</span>, ShellCommand);
 <a href=#547 id=547 data-nosnippet>547</a>
 <a href=#548 id=548 data-nosnippet>548</a>	<span class="kw">let </span>Status = ShellCommand
 <a href=#549 id=549 data-nosnippet>549</a>		.current_dir(env::current_dir()<span class="question-mark">?</span>)
@@ -568,7 +568,7 @@
 <a href=#568 id=568 data-nosnippet>568</a>	<span class="kw">if </span><a href="#566">DirectorySideCarTemporary</a>.<a href="https://doc.rust-lang.org/nightly/std/path/struct.Path.html#method.exists">exists</a>() {
 <a href=#569 id=569 data-nosnippet>569</a>		fs::remove_dir_all(<span class="kw-2">&amp;</span>DirectorySideCarTemporary)<span class="question-mark">?</span>;
 <a href=#570 id=570 data-nosnippet>570</a>
-<a href=#571 id=571 data-nosnippet>571</a>		<a href="https://docs.rs/log/0.4.29/log/macro.info.html">info!</a>(target: <span class="string">"Build"</span>, <span class="string">"Cleaned up temporary sidecar directory."</span>);
+<a href=#571 id=571 data-nosnippet>571</a>		<a href="https://docs.rs/log/0.4.30/log/macro.info.html">info!</a>(target: <span class="string">"Build"</span>, <span class="string">"Cleaned up temporary sidecar directory."</span>);
 <a href=#572 id=572 data-nosnippet>572</a>	}
 <a href=#573 id=573 data-nosnippet>573</a>
 <a href=#574 id=574 data-nosnippet>574</a>	<span class="comment">// Guards drop here, restoring Cargo.toml and tauri.conf.json to their
@@ -579,7 +579,7 @@
 <a href=#579 id=579 data-nosnippet>579</a>
 <a href=#580 id=580 data-nosnippet>580</a>	<a href="https://doc.rust-lang.org/nightly/core/mem/fn.drop.html">drop</a>(<a href="#230">ConfigGuard</a>);
 <a href=#581 id=581 data-nosnippet>581</a>
-<a href=#582 id=582 data-nosnippet>582</a>	<a href="https://docs.rs/log/0.4.29/log/macro.info.html">info!</a>(target: <span class="string">"Build"</span>, <span class="string">"Build orchestration completed successfully."</span>);
+<a href=#582 id=582 data-nosnippet>582</a>	<a href="https://docs.rs/log/0.4.30/log/macro.info.html">info!</a>(target: <span class="string">"Build"</span>, <span class="string">"Build orchestration completed successfully."</span>);
 <a href=#583 id=583 data-nosnippet>583</a>
 <a href=#584 id=584 data-nosnippet>584</a>	<a class="prelude-val" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html#variant.Ok">Ok</a>(())
 <a href=#585 id=585 data-nosnippet>585</a>}

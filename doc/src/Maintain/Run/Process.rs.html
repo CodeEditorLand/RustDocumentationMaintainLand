@@ -38,7 +38,7 @@
 <a href=#38 id=38 data-nosnippet>38</a>
 <a href=#39 id=39 data-nosnippet>39</a></span><span class="kw">use </span>std::process::{<a href="https://doc.rust-lang.org/nightly/std/process/struct.Command.html">Command</a>, <a href="https://doc.rust-lang.org/nightly/std/process/struct.Stdio.html">Stdio</a>};
 <a href=#40 id=40 data-nosnippet>40</a>
-<a href=#41 id=41 data-nosnippet>41</a><span class="kw">use </span>log::{<a href="https://docs.rs/log/0.4.29/log/macro.debug.html">debug</a>, <a href="https://docs.rs/log/0.4.29/log/macro.error.html">error</a>, <a href="https://docs.rs/log/0.4.29/log/macro.info.html">info</a>};
+<a href=#41 id=41 data-nosnippet>41</a><span class="kw">use </span>log::{<a href="https://docs.rs/log/0.4.30/log/macro.debug.html">debug</a>, <a href="https://docs.rs/log/0.4.30/log/macro.error.html">error</a>, <a href="https://docs.rs/log/0.4.30/log/macro.info.html">info</a>};
 <a href=#42 id=42 data-nosnippet>42</a>
 <a href=#43 id=43 data-nosnippet>43</a><span class="kw">use </span><span class="kw">crate</span>::Run::{
 <a href=#44 id=44 data-nosnippet>44</a>	Definition::{<a href="Definition.rs.html#58-144">Argument</a>, <a href="Definition.rs.html#156-180">RunConfig</a>},
@@ -100,9 +100,9 @@
 <a href=#100 id=100 data-nosnippet>100</a>
 <a href=#101 id=101 data-nosnippet>101</a>	<span class="comment">// Dry run mode
 <a href=#102 id=102 data-nosnippet>102</a>	</span><span class="kw">if </span><a href="#65">Arg</a>.DryRun {
-<a href=#103 id=103 data-nosnippet>103</a>		<a href="https://docs.rs/log/0.4.29/log/macro.info.html">info!</a>(<span class="string">"Dry run mode - showing configuration without executing"</span>);
+<a href=#103 id=103 data-nosnippet>103</a>		<a href="https://docs.rs/log/0.4.30/log/macro.info.html">info!</a>(<span class="string">"Dry run mode - showing configuration without executing"</span>);
 <a href=#104 id=104 data-nosnippet>104</a>
-<a href=#105 id=105 data-nosnippet>105</a>		<a href="https://docs.rs/log/0.4.29/log/macro.debug.html">debug!</a>(<span class="string">"Configuration: {:?}"</span>, Config);
+<a href=#105 id=105 data-nosnippet>105</a>		<a href="https://docs.rs/log/0.4.30/log/macro.debug.html">debug!</a>(<span class="string">"Configuration: {:?}"</span>, Config);
 <a href=#106 id=106 data-nosnippet>106</a>
 <a href=#107 id=107 data-nosnippet>107</a>		<span class="kw">return </span><a class="prelude-val" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html#variant.Ok">Ok</a>(());
 <a href=#108 id=108 data-nosnippet>108</a>	}
@@ -120,19 +120,19 @@
 <a href=#120 id=120 data-nosnippet>120</a>///
 <a href=#121 id=121 data-nosnippet>121</a>/// * `config` - The run configuration
 <a href=#122 id=122 data-nosnippet>122</a></span><span class="kw">fn </span><a href="../../../Maintain/Run/Process/fn.LogRunHeader.html">LogRunHeader</a>(config:<span class="kw-2">&amp;</span><a href="Definition.rs.html#156-180">RunConfig</a>) {
-<a href=#123 id=123 data-nosnippet>123</a>	<a href="https://docs.rs/log/0.4.29/log/macro.info.html">info!</a>(<span class="string">"========================================"</span>);
+<a href=#123 id=123 data-nosnippet>123</a>	<a href="https://docs.rs/log/0.4.30/log/macro.info.html">info!</a>(<span class="string">"========================================"</span>);
 <a href=#124 id=124 data-nosnippet>124</a>
-<a href=#125 id=125 data-nosnippet>125</a>	<a href="https://docs.rs/log/0.4.29/log/macro.info.html">info!</a>(<span class="string">"Land Run: {}"</span>, config.profile_name);
+<a href=#125 id=125 data-nosnippet>125</a>	<a href="https://docs.rs/log/0.4.30/log/macro.info.html">info!</a>(<span class="string">"Land Run: {}"</span>, config.profile_name);
 <a href=#126 id=126 data-nosnippet>126</a>
-<a href=#127 id=127 data-nosnippet>127</a>	<a href="https://docs.rs/log/0.4.29/log/macro.info.html">info!</a>(<span class="string">"========================================"</span>);
+<a href=#127 id=127 data-nosnippet>127</a>	<a href="https://docs.rs/log/0.4.30/log/macro.info.html">info!</a>(<span class="string">"========================================"</span>);
 <a href=#128 id=128 data-nosnippet>128</a>
 <a href=#129 id=129 data-nosnippet>129</a>	<span class="kw">if let </span><a class="prelude-val" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.Some">Some</a>(Workbench) = <a href="#122">config</a>.<a href="Definition.rs.html#217-231">get_workbench</a>() {
-<a href=#130 id=130 data-nosnippet>130</a>		<a href="https://docs.rs/log/0.4.29/log/macro.info.html">info!</a>(<span class="string">"Workbench: {}"</span>, Workbench);
+<a href=#130 id=130 data-nosnippet>130</a>		<a href="https://docs.rs/log/0.4.30/log/macro.info.html">info!</a>(<span class="string">"Workbench: {}"</span>, Workbench);
 <a href=#131 id=131 data-nosnippet>131</a>	}
 <a href=#132 id=132 data-nosnippet>132</a>
-<a href=#133 id=133 data-nosnippet>133</a>	<a href="https://docs.rs/log/0.4.29/log/macro.info.html">info!</a>(<span class="string">"Hot-reload: {}"</span>, <span class="kw">if </span>config.hot_reload { <span class="string">"enabled" </span>} <span class="kw">else </span>{ <span class="string">"disabled" </span>});
+<a href=#133 id=133 data-nosnippet>133</a>	<a href="https://docs.rs/log/0.4.30/log/macro.info.html">info!</a>(<span class="string">"Hot-reload: {}"</span>, <span class="kw">if </span>config.hot_reload { <span class="string">"enabled" </span>} <span class="kw">else </span>{ <span class="string">"disabled" </span>});
 <a href=#134 id=134 data-nosnippet>134</a>
-<a href=#135 id=135 data-nosnippet>135</a>	<a href="https://docs.rs/log/0.4.29/log/macro.info.html">info!</a>(<span class="string">"Watch mode: {}"</span>, <span class="kw">if </span>config.watch { <span class="string">"enabled" </span>} <span class="kw">else </span>{ <span class="string">"disabled" </span>});
+<a href=#135 id=135 data-nosnippet>135</a>	<a href="https://docs.rs/log/0.4.30/log/macro.info.html">info!</a>(<span class="string">"Watch mode: {}"</span>, <span class="kw">if </span>config.watch { <span class="string">"enabled" </span>} <span class="kw">else </span>{ <span class="string">"disabled" </span>});
 <a href=#136 id=136 data-nosnippet>136</a>}
 <a href=#137 id=137 data-nosnippet>137</a>
 <a href=#138 id=138 data-nosnippet>138</a><span class="doccomment">/// Determines the run command based on configuration.
@@ -177,7 +177,7 @@
 <a href=#177 id=177 data-nosnippet>177</a>
 <a href=#178 id=178 data-nosnippet>178</a>	<a href="Logger.rs.html#169-173">LogRunStart</a>(<span class="kw-2">&amp;</span><a href="#171">Command</a>.<a href="https://doc.rust-lang.org/nightly/alloc/foreigntype.slice.html#method.join">join</a>(<span class="string">" "</span>));
 <a href=#179 id=179 data-nosnippet>179</a>
-<a href=#180 id=180 data-nosnippet>180</a>	<a href="https://docs.rs/log/0.4.29/log/macro.debug.html">debug!</a>(<span class="string">"Executing: {} {:?}"</span>, Program, Args);
+<a href=#180 id=180 data-nosnippet>180</a>	<a href="https://docs.rs/log/0.4.30/log/macro.debug.html">debug!</a>(<span class="string">"Executing: {} {:?}"</span>, Program, Args);
 <a href=#181 id=181 data-nosnippet>181</a>
 <a href=#182 id=182 data-nosnippet>182</a>	<span class="kw">let </span><span class="kw-2">mut </span>Cmd = <a href="https://doc.rust-lang.org/nightly/std/process/struct.Command.html">Command</a>::<a href="https://doc.rust-lang.org/nightly/std/process/struct.Command.html#method.new">new</a>(<a href="#176">Program</a>);
 <a href=#183 id=183 data-nosnippet>183</a>
@@ -225,24 +225,23 @@
 <a href=#225 id=225 data-nosnippet>225</a>/// # Returns
 <a href=#226 id=226 data-nosnippet>226</a>///
 <a href=#227 id=227 data-nosnippet>227</a>/// Result indicating success or failure
-<a href=#228 id=228 data-nosnippet>228</a></span><span class="attr">#[allow(dead_code)]
-<a href=#229 id=229 data-nosnippet>229</a></span><span class="kw">fn </span><a href="../../../Maintain/Run/Process/fn.start_hot_reload_watcher.html">start_hot_reload_watcher</a>(watch_dirs:<span class="kw-2">&amp;</span>[<a href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html">String</a>], _callback:<span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/ops/function/trait.Fn.html">Fn</a>() + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">'static</span>) -&gt; <a class="prelude-ty" href="Error.rs.html#125">Result</a>&lt;()&gt; {
-<a href=#230 id=230 data-nosnippet>230</a>	<span class="comment">// Placeholder for hot-reload watcher implementation
-<a href=#231 id=231 data-nosnippet>231</a>	// In a full implementation, this would use the `notify` crate
-<a href=#232 id=232 data-nosnippet>232</a>	// to watch for file changes and trigger reloads
-<a href=#233 id=233 data-nosnippet>233</a>
-<a href=#234 id=234 data-nosnippet>234</a>	</span><a href="https://docs.rs/log/0.4.29/log/macro.info.html">info!</a>(<span class="string">"Hot-reload watcher would watch: {:?}"</span>, watch_dirs);
-<a href=#235 id=235 data-nosnippet>235</a>
-<a href=#236 id=236 data-nosnippet>236</a>	<a class="prelude-val" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html#variant.Ok">Ok</a>(())
-<a href=#237 id=237 data-nosnippet>237</a>}
-<a href=#238 id=238 data-nosnippet>238</a>
-<a href=#239 id=239 data-nosnippet>239</a><span class="doccomment">/// Gracefully shuts down the run process.
-<a href=#240 id=240 data-nosnippet>240</a>///
-<a href=#241 id=241 data-nosnippet>241</a>/// This function handles cleanup and graceful termination
-<a href=#242 id=242 data-nosnippet>242</a>/// of any child processes.
-<a href=#243 id=243 data-nosnippet>243</a></span><span class="kw">pub fn </span><a href="../../../Maintain/Run/Process/fn.shutdown.html">shutdown</a>() {
-<a href=#244 id=244 data-nosnippet>244</a>	<a href="https://docs.rs/log/0.4.29/log/macro.info.html">info!</a>(<span class="string">"Shutting down run process..."</span>);
-<a href=#245 id=245 data-nosnippet>245</a>
-<a href=#246 id=246 data-nosnippet>246</a>	<span class="comment">// Cleanup logic would go here
-<a href=#247 id=247 data-nosnippet>247</a></span>}
+<a href=#228 id=228 data-nosnippet>228</a></span><span class="kw">fn </span><a href="../../../Maintain/Run/Process/fn.start_hot_reload_watcher.html">start_hot_reload_watcher</a>(watch_dirs:<span class="kw-2">&amp;</span>[<a href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html">String</a>], _callback:<span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/ops/function/trait.Fn.html">Fn</a>() + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">'static</span>) -&gt; <a class="prelude-ty" href="Error.rs.html#125">Result</a>&lt;()&gt; {
+<a href=#229 id=229 data-nosnippet>229</a>	<span class="comment">// Placeholder for hot-reload watcher implementation
+<a href=#230 id=230 data-nosnippet>230</a>	// In a full implementation, this would use the `notify` crate
+<a href=#231 id=231 data-nosnippet>231</a>	// to watch for file changes and trigger reloads
+<a href=#232 id=232 data-nosnippet>232</a>
+<a href=#233 id=233 data-nosnippet>233</a>	</span><a href="https://docs.rs/log/0.4.30/log/macro.info.html">info!</a>(<span class="string">"Hot-reload watcher would watch: {:?}"</span>, watch_dirs);
+<a href=#234 id=234 data-nosnippet>234</a>
+<a href=#235 id=235 data-nosnippet>235</a>	<a class="prelude-val" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html#variant.Ok">Ok</a>(())
+<a href=#236 id=236 data-nosnippet>236</a>}
+<a href=#237 id=237 data-nosnippet>237</a>
+<a href=#238 id=238 data-nosnippet>238</a><span class="doccomment">/// Gracefully shuts down the run process.
+<a href=#239 id=239 data-nosnippet>239</a>///
+<a href=#240 id=240 data-nosnippet>240</a>/// This function handles cleanup and graceful termination
+<a href=#241 id=241 data-nosnippet>241</a>/// of any child processes.
+<a href=#242 id=242 data-nosnippet>242</a></span><span class="kw">pub fn </span><a href="../../../Maintain/Run/Process/fn.shutdown.html">shutdown</a>() {
+<a href=#243 id=243 data-nosnippet>243</a>	<a href="https://docs.rs/log/0.4.30/log/macro.info.html">info!</a>(<span class="string">"Shutting down run process..."</span>);
+<a href=#244 id=244 data-nosnippet>244</a>
+<a href=#245 id=245 data-nosnippet>245</a>	<span class="comment">// Cleanup logic would go here
+<a href=#246 id=246 data-nosnippet>246</a></span>}
 </code></pre></div></section></main></body></html>

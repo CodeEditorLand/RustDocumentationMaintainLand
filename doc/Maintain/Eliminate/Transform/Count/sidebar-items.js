@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["BlockShadowsTarget","ClosureParamShadows","CountIdentInFormatLiteral","CountIdentsInTokenStream","CountReferences","IsTopLevelShadow"],"struct":["ExprCounter"]};

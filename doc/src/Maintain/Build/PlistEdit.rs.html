@@ -69,7 +69,7 @@
 <a href=#69 id=69 data-nosnippet>69</a>//=============================================================================//
 <a href=#70 id=70 data-nosnippet>70</a></span><span class="kw">use </span>std::{<a href="https://doc.rust-lang.org/nightly/alloc/collections/btree/map/struct.BTreeMap.html">collections::BTreeMap</a>, <a href="https://doc.rust-lang.org/nightly/std/fs/index.html">fs</a>, <a href="https://doc.rust-lang.org/nightly/std/path/struct.Path.html">path::Path</a>};
 <a href=#71 id=71 data-nosnippet>71</a>
-<a href=#72 id=72 data-nosnippet>72</a><span class="kw">use </span>log::{<a href="https://docs.rs/log/0.4.29/log/macro.debug.html">debug</a>, <a href="https://docs.rs/log/0.4.29/log/macro.info.html">info</a>};
+<a href=#72 id=72 data-nosnippet>72</a><span class="kw">use </span>log::{<a href="https://docs.rs/log/0.4.30/log/macro.debug.html">debug</a>, <a href="https://docs.rs/log/0.4.30/log/macro.info.html">info</a>};
 <a href=#73 id=73 data-nosnippet>73</a><span class="kw">use </span>plist::{Dictionary, Value, XmlWriteOptions};
 <a href=#74 id=74 data-nosnippet>74</a>
 <a href=#75 id=75 data-nosnippet>75</a><span class="kw">use </span><a href="Error.rs.html#108-204"><span class="kw">crate</span>::Build::Error::Error</a> <span class="kw">as </span>BuildError;
@@ -118,7 +118,7 @@
 <a href=#118 id=118 data-nosnippet>118</a>/// let modified = PlistEdit(&amp;path, &amp;env)?;
 <a href=#119 id=119 data-nosnippet>119</a>/// ```
 <a href=#120 id=120 data-nosnippet>120</a></span><span class="kw">pub fn </span><a href="../../../Maintain/Build/PlistEdit/fn.PlistEdit.html">PlistEdit</a>(File:<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/path/struct.Path.html">Path</a>, EnvVars:<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/alloc/collections/btree/map/struct.BTreeMap.html">BTreeMap</a>&lt;<a href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html">String</a>, <a href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html">String</a>&gt;) -&gt; <a class="prelude-ty" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html">Result</a>&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>, <a href="Error.rs.html#108-204">BuildError</a>&gt; {
-<a href=#121 id=121 data-nosnippet>121</a>	<a href="https://docs.rs/log/0.4.29/log/macro.debug.html">debug!</a>(target: <span class="string">"Build::Plist"</span>, <span class="string">"Attempting to modify plist: {}"</span>, File.display());
+<a href=#121 id=121 data-nosnippet>121</a>	<a href="https://docs.rs/log/0.4.30/log/macro.debug.html">debug!</a>(target: <span class="string">"Build::Plist"</span>, <span class="string">"Attempting to modify plist: {}"</span>, File.display());
 <a href=#122 id=122 data-nosnippet>122</a>
 <a href=#123 id=123 data-nosnippet>123</a>	<span class="kw">let </span>Data = fs::read(File)<span class="question-mark">?</span>;
 <a href=#124 id=124 data-nosnippet>124</a>
@@ -137,7 +137,7 @@
 <a href=#137 id=137 data-nosnippet>137</a>	<span class="comment">// Check whether the existing value already matches exactly.
 <a href=#138 id=138 data-nosnippet>138</a>	</span><span class="kw">if let </span><a class="prelude-val" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.Some">Some</a>(Existing) = <a href="#127">Dict</a>.get(<span class="string">"LSEnvironment"</span>) {
 <a href=#139 id=139 data-nosnippet>139</a>		<span class="kw">if </span><span class="kw-2">*</span><a href="#138">Existing</a> == <a href="#135">EnvDict</a> {
-<a href=#140 id=140 data-nosnippet>140</a>			<a href="https://docs.rs/log/0.4.29/log/macro.debug.html">debug!</a>(target: <span class="string">"Build::Plist"</span>, <span class="string">"LSEnvironment already up-to-date in {}"</span>, File.display());
+<a href=#140 id=140 data-nosnippet>140</a>			<a href="https://docs.rs/log/0.4.30/log/macro.debug.html">debug!</a>(target: <span class="string">"Build::Plist"</span>, <span class="string">"LSEnvironment already up-to-date in {}"</span>, File.display());
 <a href=#141 id=141 data-nosnippet>141</a>
 <a href=#142 id=142 data-nosnippet>142</a>			<span class="kw">return </span><a class="prelude-val" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html#variant.Ok">Ok</a>(<span class="bool-val">false</span>);
 <a href=#143 id=143 data-nosnippet>143</a>		}
@@ -149,7 +149,7 @@
 <a href=#149 id=149 data-nosnippet>149</a>	<span class="kw">let </span>Written = write_plist(File, <span class="kw-2">&amp;</span>Root)<span class="question-mark">?</span>;
 <a href=#150 id=150 data-nosnippet>150</a>
 <a href=#151 id=151 data-nosnippet>151</a>	<span class="kw">if </span><a href="#149">Written</a> {
-<a href=#152 id=152 data-nosnippet>152</a>		<a href="https://docs.rs/log/0.4.29/log/macro.info.html">info!</a>(target: <span class="string">"Build::Plist"</span>, <span class="string">"Updated LSEnvironment in {}"</span>, File.display());
+<a href=#152 id=152 data-nosnippet>152</a>		<a href="https://docs.rs/log/0.4.30/log/macro.info.html">info!</a>(target: <span class="string">"Build::Plist"</span>, <span class="string">"Updated LSEnvironment in {}"</span>, File.display());
 <a href=#153 id=153 data-nosnippet>153</a>	}
 <a href=#154 id=154 data-nosnippet>154</a>
 <a href=#155 id=155 data-nosnippet>155</a>	<a class="prelude-val" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html#variant.Ok">Ok</a>(<a href="#149">Written</a>)

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"fn":["main"],"mod":["Architecture","Build","Run"]};
+window.SIDEBAR_ITEMS = {"fn":["main"],"mod":["Architecture","Build","Eliminate","Run"]};
