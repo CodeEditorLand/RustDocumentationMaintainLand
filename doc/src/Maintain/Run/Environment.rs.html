@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `Element/Maintain/Source/Run/Environment.rs`."><title>Environment.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-6b053e98.ttf.woff2,FiraSans-Italic-81dc35de.woff2,FiraSans-Regular-0fe48ade.woff2,FiraSans-MediumItalic-ccf7e434.woff2,FiraSans-Medium-e1aa3f0a.woff2,SourceCodePro-Regular-8badfe75.ttf.woff2,SourceCodePro-Semibold-aa29a496.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2"href="../../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../../static.files/normalize-9960930a.css"><link rel="stylesheet" href="../../../static.files/rustdoc-17e0aaed.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="Maintain" data-themes="" data-resource-suffix="" data-rustdoc-version="1.97.0-nightly (d3cd04068 2026-05-16)" data-channel="nightly" data-search-js="search-fd9372ac.js" data-stringdex-js="stringdex-2da4960a.js" data-settings-js="settings-170eb4bf.js" ><script src="../../../static.files/storage-41dd4d93.js"></script><script defer src="../../../static.files/src-script-813739b1.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-fcd733ba.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-f7c3ffd8.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-eab170b8.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-044be391.svg"></head><body class="rustdoc src"><a class="skip-main-content" href="#main-content">Skip to main content</a><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer" title="Drag to resize sidebar"></div><main><section id="main-content" class="content" tabindex="-1"><div class="main-heading"><h1><div class="sub-heading">Maintain/Run/</div>Environment.rs</h1><rustdoc-toolbar></rustdoc-toolbar></div><div class="example-wrap digits-3"><pre class="rust"><code><a href=#1 id=1 data-nosnippet>1</a><span class="comment">//=============================================================================//
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `Element/Maintain/Source/Run/Environment.rs`."><title>Environment.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-6b053e98.ttf.woff2,FiraSans-Italic-81dc35de.woff2,FiraSans-Regular-0fe48ade.woff2,FiraSans-MediumItalic-ccf7e434.woff2,FiraSans-Medium-e1aa3f0a.woff2,SourceCodePro-Regular-8badfe75.ttf.woff2,SourceCodePro-Semibold-aa29a496.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2"href="../../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../../static.files/normalize-9960930a.css"><link rel="stylesheet" href="../../../static.files/rustdoc-17e0aaed.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="Maintain" data-themes="" data-resource-suffix="" data-rustdoc-version="1.98.0-nightly (cced03bfd 2026-05-28)" data-channel="nightly" data-search-js="search-fd9372ac.js" data-stringdex-js="stringdex-2da4960a.js" data-settings-js="settings-170eb4bf.js" ><script src="../../../static.files/storage-41dd4d93.js"></script><script defer src="../../../static.files/src-script-813739b1.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-fcd733ba.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-f7c3ffd8.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-eab170b8.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-044be391.svg"></head><body class="rustdoc src"><a class="skip-main-content" href="#main-content">Skip to main content</a><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer" title="Drag to resize sidebar"></div><main><section id="main-content" class="content" tabindex="-1"><div class="main-heading"><h1><div class="sub-heading">Maintain/Run/</div>Environment.rs</h1><rustdoc-toolbar></rustdoc-toolbar></div><div class="example-wrap digits-3"><pre class="rust"><code><a href=#1 id=1 data-nosnippet>1</a><span class="comment">//=============================================================================//
 <a href=#2 id=2 data-nosnippet>2</a>// File Path: Element/Maintain/Source/Run/Environment.rs
 <a href=#3 id=3 data-nosnippet>3</a>//=============================================================================//
 <a href=#4 id=4 data-nosnippet>4</a>// Module: Environment
@@ -39,7 +39,7 @@
 <a href=#39 id=39 data-nosnippet>39</a>
 <a href=#40 id=40 data-nosnippet>40</a></span><span class="kw">use </span><a href="https://doc.rust-lang.org/nightly/std/collections/hash/map/struct.HashMap.html">std::collections::HashMap</a>;
 <a href=#41 id=41 data-nosnippet>41</a>
-<a href=#42 id=42 data-nosnippet>42</a><span class="kw">use </span><span class="kw">crate</span>::Run::{Constant::<span class="kw-2">*</span>, <a href="Definition.rs.html#243-262">Definition::Profile</a>, <a href="Error.rs.html#125">Error::Result</a>};
+<a href=#42 id=42 data-nosnippet>42</a><span class="kw">use </span><span class="kw">crate</span>::Run::{<a href="mod.rs.html#84">Constant</a>::<span class="kw-2">*</span>, <a href="Definition.rs.html#243-262">Definition::Profile</a>, <a href="Error.rs.html#125">Error::Result</a>};
 <a href=#43 id=43 data-nosnippet>43</a>
 <a href=#44 id=44 data-nosnippet>44</a><span class="doccomment">/// Resolves environment variables for a run profile.
 <a href=#45 id=45 data-nosnippet>45</a>///
@@ -173,7 +173,7 @@
 <a href=#173 id=173 data-nosnippet>173</a>	<span class="comment">// Check at least one workbench is enabled
 <a href=#174 id=174 data-nosnippet>174</a>	</span><span class="kw">let </span>Workbenches = [<span class="string">"Browser"</span>, <span class="string">"Wind"</span>, <span class="string">"Mountain"</span>, <span class="string">"Electron"</span>];
 <a href=#175 id=175 data-nosnippet>175</a>
-<a href=#176 id=176 data-nosnippet>176</a>	<span class="kw">let </span>HasWorkbench = <a href="#174">Workbenches</a>.<a href="https://doc.rust-lang.org/nightly/core/foreigntype.slice.html#method.iter">iter</a>().<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html#method.any">any</a>(|W| <a href="#160">Env</a>.<a href="https://doc.rust-lang.org/nightly/std/collections/hash/map/struct.HashMap.html#method.get">get</a>(<span class="kw-2">*</span><a href="#176">W</a>).<a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#method.map">map</a>(|V| <a href="#176">V</a> == <span class="string">"true"</span>).<a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#method.unwrap_or">unwrap_or</a>(<span class="bool-val">false</span>));
+<a href=#176 id=176 data-nosnippet>176</a>	<span class="kw">let </span>HasWorkbench = <a href="#174">Workbenches</a>.<a href="https://doc.rust-lang.org/nightly/core/primitive.slice.html#method.iter">iter</a>().<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html#method.any">any</a>(|W| <a href="#160">Env</a>.<a href="https://doc.rust-lang.org/nightly/std/collections/hash/map/struct.HashMap.html#method.get">get</a>(<span class="kw-2">*</span><a href="#176">W</a>).<a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#method.map">map</a>(|V| <a href="#176">V</a> == <span class="string">"true"</span>).<a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#method.unwrap_or">unwrap_or</a>(<span class="bool-val">false</span>));
 <a href=#177 id=177 data-nosnippet>177</a>
 <a href=#178 id=178 data-nosnippet>178</a>	<span class="kw">if </span>!<a href="#176">HasWorkbench</a> {
 <a href=#179 id=179 data-nosnippet>179</a>		<a href="#161">Errors</a>.<a href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html#method.push">push</a>(<span class="string">"At least one workbench must be enabled (Browser, Wind, Mountain, or Electron)"</span>.<a href="https://doc.rust-lang.org/nightly/alloc/string/trait.ToString.html#tymethod.to_string">to_string</a>());
@@ -181,7 +181,7 @@
 <a href=#181 id=181 data-nosnippet>181</a>
 <a href=#182 id=182 data-nosnippet>182</a>	<span class="comment">// Check LIVE_RELOAD_PORT is valid
 <a href=#183 id=183 data-nosnippet>183</a>	</span><span class="kw">if let </span><a class="prelude-val" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.Some">Some</a>(PortStr) = <a href="#160">Env</a>.<a href="https://doc.rust-lang.org/nightly/std/collections/hash/map/struct.HashMap.html#method.get">get</a>(<span class="string">"LIVE_RELOAD_PORT"</span>) {
-<a href=#184 id=184 data-nosnippet>184</a>		<span class="kw">if let </span><a class="prelude-val" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html#variant.Ok">Ok</a>(Port) = <a href="#183">PortStr</a>.parse::&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.u16.html">u16</a>&gt;() {
+<a href=#184 id=184 data-nosnippet>184</a>		<span class="kw">if let </span><a class="prelude-val" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html#variant.Ok">Ok</a>(Port) = <a href="#183">PortStr</a>.<a href="https://doc.rust-lang.org/nightly/core/primitive.str.html#method.parse">parse</a>::&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.u16.html">u16</a>&gt;() {
 <a href=#185 id=185 data-nosnippet>185</a>			<span class="kw">if </span><a href="#184">Port</a> == <span class="number">0 </span>{
 <a href=#186 id=186 data-nosnippet>186</a>				<a href="#161">Errors</a>.<a href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html#method.push">push</a>(<span class="string">"LIVE_RELOAD_PORT cannot be 0"</span>.<a href="https://doc.rust-lang.org/nightly/alloc/string/trait.ToString.html#tymethod.to_string">to_string</a>());
 <a href=#187 id=187 data-nosnippet>187</a>			}
@@ -268,47 +268,48 @@
 <a href=#268 id=268 data-nosnippet>268</a>		.<a href="https://doc.rust-lang.org/nightly/std/collections/hash/map/struct.HashMap.html#method.iter">iter</a>()
 <a href=#269 id=269 data-nosnippet>269</a>		.<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html#method.map">map</a>(|(k, v)| {
 <a href=#270 id=270 data-nosnippet>270</a>			<span class="kw">let </span>display_value = <span class="kw">if </span><a href="#269">v</a>.<a href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html#method.is_empty">is_empty</a>() { <span class="string">"(empty)"</span>.<a href="https://doc.rust-lang.org/nightly/alloc/string/trait.ToString.html#tymethod.to_string">to_string</a>() } <span class="kw">else </span>{ <a href="#269">v</a>.<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">clone</a>() };
-<a href=#271 id=271 data-nosnippet>271</a>			<a href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">"  {} = {}"</span>, k, display_value)
-<a href=#272 id=272 data-nosnippet>272</a>		})
-<a href=#273 id=273 data-nosnippet>273</a>		.<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html#method.collect">collect</a>();
-<a href=#274 id=274 data-nosnippet>274</a>
-<a href=#275 id=275 data-nosnippet>275</a>	<a href="#267">lines</a>.<a href="https://doc.rust-lang.org/nightly/alloc/foreigntype.slice.html#method.sort">sort</a>();
-<a href=#276 id=276 data-nosnippet>276</a>
-<a href=#277 id=277 data-nosnippet>277</a>	<a href="#267">lines</a>.<a href="https://doc.rust-lang.org/nightly/alloc/foreigntype.slice.html#method.join">join</a>(<span class="string">"\n"</span>)
-<a href=#278 id=278 data-nosnippet>278</a>}
-<a href=#279 id=279 data-nosnippet>279</a>
-<a href=#280 id=280 data-nosnippet>280</a><span class="doccomment">/// Filters environment variables to only include run-related ones.
-<a href=#281 id=281 data-nosnippet>281</a>///
-<a href=#282 id=282 data-nosnippet>282</a>/// # Arguments
-<a href=#283 id=283 data-nosnippet>283</a>///
-<a href=#284 id=284 data-nosnippet>284</a>/// * `env` - The full environment
-<a href=#285 id=285 data-nosnippet>285</a>///
-<a href=#286 id=286 data-nosnippet>286</a>/// # Returns
-<a href=#287 id=287 data-nosnippet>287</a>///
-<a href=#288 id=288 data-nosnippet>288</a>/// A filtered HashMap with only run-related variables
-<a href=#289 id=289 data-nosnippet>289</a></span><span class="kw">pub fn </span><a href="../../../Maintain/Run/Environment/fn.filter_run_vars.html">filter_run_vars</a>(env:<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/collections/hash/map/struct.HashMap.html">HashMap</a>&lt;<a href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html">String</a>, <a href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html">String</a>&gt;) -&gt; <a href="https://doc.rust-lang.org/nightly/std/collections/hash/map/struct.HashMap.html">HashMap</a>&lt;<a href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html">String</a>, <a href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html">String</a>&gt; {
-<a href=#290 id=290 data-nosnippet>290</a>	<span class="kw">let </span>run_prefixes = [
-<a href=#291 id=291 data-nosnippet>291</a>		<span class="string">"NODE_"</span>,
-<a href=#292 id=292 data-nosnippet>292</a>		<span class="string">"HOT_"</span>,
-<a href=#293 id=293 data-nosnippet>293</a>		<span class="string">"WATCH"</span>,
-<a href=#294 id=294 data-nosnippet>294</a>		<span class="string">"LIVE_"</span>,
-<a href=#295 id=295 data-nosnippet>295</a>		<span class="string">"AIR_"</span>,
-<a href=#296 id=296 data-nosnippet>296</a>		<span class="string">"RUST_"</span>,
-<a href=#297 id=297 data-nosnippet>297</a>		<span class="string">"Browser"</span>,
-<a href=#298 id=298 data-nosnippet>298</a>		<span class="string">"Bundle"</span>,
-<a href=#299 id=299 data-nosnippet>299</a>		<span class="string">"Clean"</span>,
-<a href=#300 id=300 data-nosnippet>300</a>		<span class="string">"Compile"</span>,
-<a href=#301 id=301 data-nosnippet>301</a>		<span class="string">"Debug"</span>,
-<a href=#302 id=302 data-nosnippet>302</a>		<span class="string">"Dependency"</span>,
-<a href=#303 id=303 data-nosnippet>303</a>		<span class="string">"Mountain"</span>,
-<a href=#304 id=304 data-nosnippet>304</a>		<span class="string">"Wind"</span>,
-<a href=#305 id=305 data-nosnippet>305</a>		<span class="string">"Electron"</span>,
-<a href=#306 id=306 data-nosnippet>306</a>		<span class="string">"Level"</span>,
-<a href=#307 id=307 data-nosnippet>307</a>	];
-<a href=#308 id=308 data-nosnippet>308</a>
-<a href=#309 id=309 data-nosnippet>309</a>	<a href="#289">env</a>.<a href="https://doc.rust-lang.org/nightly/std/collections/hash/map/struct.HashMap.html#method.iter">iter</a>()
-<a href=#310 id=310 data-nosnippet>310</a>		.<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html#method.filter">filter</a>(|(k, <span class="kw">_</span>)| <a href="#290">run_prefixes</a>.<a href="https://doc.rust-lang.org/nightly/core/foreigntype.slice.html#method.iter">iter</a>().<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html#method.any">any</a>(|prefix| <a href="#310">k</a>.<a href="https://doc.rust-lang.org/nightly/core/foreigntype.str.html#method.starts_with">starts_with</a>(<a href="#310">prefix</a>)))
-<a href=#311 id=311 data-nosnippet>311</a>		.<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html#method.map">map</a>(|(k, v)| (<a href="#311">k</a>.<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">clone</a>(), <a href="#311">v</a>.<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">clone</a>()))
-<a href=#312 id=312 data-nosnippet>312</a>		.<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html#method.collect">collect</a>()
-<a href=#313 id=313 data-nosnippet>313</a>}
+<a href=#271 id=271 data-nosnippet>271</a>
+<a href=#272 id=272 data-nosnippet>272</a>			<a href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">"  {} = {}"</span>, k, display_value)
+<a href=#273 id=273 data-nosnippet>273</a>		})
+<a href=#274 id=274 data-nosnippet>274</a>		.<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html#method.collect">collect</a>();
+<a href=#275 id=275 data-nosnippet>275</a>
+<a href=#276 id=276 data-nosnippet>276</a>	<a href="#267">lines</a>.<a href="https://doc.rust-lang.org/nightly/alloc/primitive.slice.html#method.sort">sort</a>();
+<a href=#277 id=277 data-nosnippet>277</a>
+<a href=#278 id=278 data-nosnippet>278</a>	<a href="#267">lines</a>.<a href="https://doc.rust-lang.org/nightly/alloc/primitive.slice.html#method.join">join</a>(<span class="string">"\n"</span>)
+<a href=#279 id=279 data-nosnippet>279</a>}
+<a href=#280 id=280 data-nosnippet>280</a>
+<a href=#281 id=281 data-nosnippet>281</a><span class="doccomment">/// Filters environment variables to only include run-related ones.
+<a href=#282 id=282 data-nosnippet>282</a>///
+<a href=#283 id=283 data-nosnippet>283</a>/// # Arguments
+<a href=#284 id=284 data-nosnippet>284</a>///
+<a href=#285 id=285 data-nosnippet>285</a>/// * `env` - The full environment
+<a href=#286 id=286 data-nosnippet>286</a>///
+<a href=#287 id=287 data-nosnippet>287</a>/// # Returns
+<a href=#288 id=288 data-nosnippet>288</a>///
+<a href=#289 id=289 data-nosnippet>289</a>/// A filtered HashMap with only run-related variables
+<a href=#290 id=290 data-nosnippet>290</a></span><span class="kw">pub fn </span><a href="../../../Maintain/Run/Environment/fn.filter_run_vars.html">filter_run_vars</a>(env:<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/collections/hash/map/struct.HashMap.html">HashMap</a>&lt;<a href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html">String</a>, <a href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html">String</a>&gt;) -&gt; <a href="https://doc.rust-lang.org/nightly/std/collections/hash/map/struct.HashMap.html">HashMap</a>&lt;<a href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html">String</a>, <a href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html">String</a>&gt; {
+<a href=#291 id=291 data-nosnippet>291</a>	<span class="kw">let </span>run_prefixes = [
+<a href=#292 id=292 data-nosnippet>292</a>		<span class="string">"NODE_"</span>,
+<a href=#293 id=293 data-nosnippet>293</a>		<span class="string">"HOT_"</span>,
+<a href=#294 id=294 data-nosnippet>294</a>		<span class="string">"WATCH"</span>,
+<a href=#295 id=295 data-nosnippet>295</a>		<span class="string">"LIVE_"</span>,
+<a href=#296 id=296 data-nosnippet>296</a>		<span class="string">"AIR_"</span>,
+<a href=#297 id=297 data-nosnippet>297</a>		<span class="string">"RUST_"</span>,
+<a href=#298 id=298 data-nosnippet>298</a>		<span class="string">"Browser"</span>,
+<a href=#299 id=299 data-nosnippet>299</a>		<span class="string">"Bundle"</span>,
+<a href=#300 id=300 data-nosnippet>300</a>		<span class="string">"Clean"</span>,
+<a href=#301 id=301 data-nosnippet>301</a>		<span class="string">"Compile"</span>,
+<a href=#302 id=302 data-nosnippet>302</a>		<span class="string">"Debug"</span>,
+<a href=#303 id=303 data-nosnippet>303</a>		<span class="string">"Dependency"</span>,
+<a href=#304 id=304 data-nosnippet>304</a>		<span class="string">"Mountain"</span>,
+<a href=#305 id=305 data-nosnippet>305</a>		<span class="string">"Wind"</span>,
+<a href=#306 id=306 data-nosnippet>306</a>		<span class="string">"Electron"</span>,
+<a href=#307 id=307 data-nosnippet>307</a>		<span class="string">"Level"</span>,
+<a href=#308 id=308 data-nosnippet>308</a>	];
+<a href=#309 id=309 data-nosnippet>309</a>
+<a href=#310 id=310 data-nosnippet>310</a>	<a href="#290">env</a>.<a href="https://doc.rust-lang.org/nightly/std/collections/hash/map/struct.HashMap.html#method.iter">iter</a>()
+<a href=#311 id=311 data-nosnippet>311</a>		.<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html#method.filter">filter</a>(|(k, <span class="kw">_</span>)| <a href="#291">run_prefixes</a>.<a href="https://doc.rust-lang.org/nightly/core/primitive.slice.html#method.iter">iter</a>().<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html#method.any">any</a>(|prefix| <a href="#311">k</a>.<a href="https://doc.rust-lang.org/nightly/core/primitive.str.html#method.starts_with">starts_with</a>(<a href="#311">prefix</a>)))
+<a href=#312 id=312 data-nosnippet>312</a>		.<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html#method.map">map</a>(|(k, v)| (<a href="#312">k</a>.<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">clone</a>(), <a href="#312">v</a>.<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">clone</a>()))
+<a href=#313 id=313 data-nosnippet>313</a>		.<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html#method.collect">collect</a>()
+<a href=#314 id=314 data-nosnippet>314</a>}
 </code></pre></div></section></main></body></html>
